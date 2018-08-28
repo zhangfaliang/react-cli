@@ -29,7 +29,7 @@ class App extends Component {
   };
 
   render() {
-    const { pushPath } = this.props;
+    const { pathname } = this.props;
     return (
       <div className="App">
         <Helmet>
@@ -44,13 +44,13 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <p className="App-intro" onClick={() => this.handleClick('/')}>
-          /
+          /{pathname}
         </p>
         <p className="App-intro" onClick={() => this.handleClick('/home')}>
-          home
+          home {pathname}
         </p>
-        <p className="App-intro" onClick={() => this.handleClick('/app')}>
-          app
+        <p className="App-intro" onClick={() => this.handleClick('/hello')}>
+          app {pathname}
         </p>
       </div>
     );
@@ -58,10 +58,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  // pathname: state.router.location.pathname,
-  // search: state.router.location.search,
-  // hash: state.router.location.hash,
-  // router: state.router
+  pathname: state.router.location.pathname,
+  search: state.router.location.search,
+  hash: state.router.location.hash,
+  router: state.router
 });
 const mapDispatchToProps = dispatch => {
   return {
