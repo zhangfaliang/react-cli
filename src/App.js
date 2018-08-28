@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import logo from './logo.svg';
+import { useSagaAndUseConnectedReactRouter } from './actions/homeAction';
+
 //import asyncComponent from './components/AsyncComponent';
 //聆听翻译 另外，我们在这里传递一个函数似乎很奇怪。
 //为什么不直接传入一个字符串（比如./ containers / Home）
@@ -12,17 +15,21 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  handleClick = e => {
-    import('./moduleA.js')
-      .then(({ moduleA }) => {
-        console.log(moduleA);
-      })
-      .catch(ree => {
-        console.log(ree);
-      });
+  handleClick = path => {
+    console.log(this.props.pushPath);
+
+    this.props.pushPath(path);
+    // import('./moduleA.js')
+    //   .then(({ moduleA }) => {
+    //     console.log(moduleA);
+    //   })
+    //   .catch(ree => {
+    //     console.log(ree);
+    //   });
   };
 
   render() {
+    const { pushPath } = this.props;
     return (
       <div className="App">
         <Helmet>
@@ -36,9 +43,33 @@ class App extends Component {
         <p className="App-intro" onClick={this.handleClick}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <p className="App-intro" onClick={() => this.handleClick('/')}>
+          /
+        </p>
+        <p className="App-intro" onClick={() => this.handleClick('/home')}>
+          home
+        </p>
+        <p className="App-intro" onClick={() => this.handleClick('/app')}>
+          app
+        </p>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  // pathname: state.router.location.pathname,
+  // search: state.router.location.search,
+  // hash: state.router.location.hash,
+  // router: state.router
+});
+const mapDispatchToProps = dispatch => {
+  return {
+    pushPath: path => dispatch(useSagaAndUseConnectedReactRouter(path))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
