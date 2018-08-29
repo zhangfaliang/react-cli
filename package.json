@@ -3,14 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "3",
     "connected-react-router": "^4.4.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
+    "node-sass-chokidar": "^1.3.3",
+    "npm-run-all": "^4.1.3",
     "prettier": "^1.14.2",
     "react": "^16.4.2",
+    "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.3.5",
+    "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.4.0-alpha.1",
     "react-scripts": "1.1.5",
@@ -24,11 +29,16 @@
     ]
   },
   "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "precommit": "lint-staged",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-js": "react-scripts start",
+    "start": "REACT_APP_SECRET_TYPE=DEV npm-run-all -p watch-css start-js  ",
+    "build-js": "react-scripts build",
+    "build": "REACT_APP_SECRET_TYPE=QA  npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow":"flow"
   },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.5"

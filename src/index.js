@@ -12,18 +12,21 @@ import {
 } from 'connected-react-router';
 import { Route, Switch } from 'react-router'; // react-router v4
 import { AppContainer } from 'react-hot-loader'; /* react-hot-loader v3 */
+import Loadable from 'react-loadable';
 
 import './index.css';
 import rootReducer from './reducers/rootReducer';
 import registerServiceWorker from './registerServiceWorker';
 import homeSaga from './sagas/homeSaga';
-import asyncComponent from './components/AsyncComponent';
+import BasicExample from './routers/basic';
+// import asyncComponent from './components/AsyncComponent';
+import MyLoadingComponent from './components/MyLoadingComponent';
 const history = createBrowserHistory({
-  basename: '/prefix/',
-  hashType: 'slash',
-  getUserConfirmation: (message, callback) => callback(window.confirm(message)),
-  initialEntries: ['/one', '/two', { pathname: '/three' }],
-  initialIndex: 1
+  // basename: '/prefix/',
+  // hashType: 'slash',
+  // getUserConfirmation: (message, callback) => callback(window.confirm(message)),
+  // initialEntries: ['/one', '/two', { pathname: '/three' }],
+  // initialIndex: 1
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -51,17 +54,26 @@ const render = () => {
             <Route
               exact
               path="/"
-              component={asyncComponent(() => import('./App.js'))}
+              component={Loadable({
+                loader: () => import('./App'),
+                loading: MyLoadingComponent
+              })}
             />
             <Route
               exact
               path="/home"
-              component={asyncComponent(() => import('./components/home'))}
+              component={Loadable({
+                loader: () => import('./components/home'),
+                loading: MyLoadingComponent
+              })}
             />
             <Route
               exact
               path="/hello"
-              component={asyncComponent(() => import('./components/hello'))}
+              component={Loadable({
+                loader: () => import('./components/hello'),
+                loading: MyLoadingComponent
+              })}
             />
             <Route render={() => <div>Miss</div>} />
           </Switch>
@@ -71,7 +83,6 @@ const render = () => {
     document.getElementById('root')
   );
 };
-console.log(module.hot, '888888888888888');
 
 render();
 
