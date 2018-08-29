@@ -32,12 +32,12 @@ import MyLoadingComponent from './components/MyLoadingComponent';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  //connectRouter(history)(rootReducer), // new root reducer with router state\
+  connectRouter(history)(rootReducer), // new root reducer with router state\
   rootReducer,
   {},
   composeWithDevTools(
     applyMiddleware(
-      //routerMiddleware(history), // for dispatching history actions
+      routerMiddleware(history), // for dispatching history actions
       sagaMiddleware
       // ... other middlewares ...
     )
