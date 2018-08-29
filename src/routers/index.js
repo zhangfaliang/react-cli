@@ -5,6 +5,7 @@ import CustomLink from './CustomLink';
 import PreventingTransitionsExample from './PransitionsTransitions';
 import NoMatchExample from './NoMatch';
 import RecursiveExample from './recursive-paths';
+import SidebarExample from './Sidebar';
 export {
   BasicExample,
   URLParameters,
@@ -12,5 +13,6 @@ export {
   CustomLink,
   PreventingTransitionsExample,
   NoMatchExample,
-  RecursiveExample
+  RecursiveExample,
+  SidebarExample
 };
