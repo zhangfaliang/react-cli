@@ -9,7 +9,12 @@ import './index.css';
 import rootReducer from './reducers/rootReducer';
 import registerServiceWorker from './registerServiceWorker';
 import homeSaga from './sagas/homeSaga';
-import { BasicExample, URLParameters, AuthExample } from './routers/index';
+import {
+  BasicExample,
+  URLParameters,
+  AuthExample,
+  CustomLink
+} from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -29,7 +34,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <AuthExample />
+      <CustomLink />
     </Provider>,
     document.getElementById('root')
   );
