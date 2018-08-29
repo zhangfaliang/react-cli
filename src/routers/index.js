@@ -8,6 +8,7 @@ import RecursiveExample from './recursive-paths';
 import SidebarExample from './Sidebar';
 import AnimationExample from './AnimatedTransitions';
 import AmbiguousMatch from './AmbiguousMatch';
+import RouteConfigExample from './RouterConfig';
 export {
   BasicExample,
   URLParameters,
@@ -18,5 +19,6 @@ export {
   RecursiveExample,
   SidebarExample,
   AnimationExample,
-  AmbiguousMatch
+  AmbiguousMatch,
+  RouteConfigExample
 };
