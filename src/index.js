@@ -17,7 +17,8 @@ import {
   PreventingTransitionsExample,
   NoMatchExample,
   RecursiveExample,
-  SidebarExample
+  SidebarExample,
+  AnimationExample
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -38,7 +39,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <SidebarExample />
+      <AnimationExample />
     </Provider>,
     document.getElementById('root')
   );

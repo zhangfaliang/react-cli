@@ -6,6 +6,7 @@ import PreventingTransitionsExample from './PransitionsTransitions';
 import NoMatchExample from './NoMatch';
 import RecursiveExample from './recursive-paths';
 import SidebarExample from './Sidebar';
+import AnimationExample from './AnimatedTransitions';
 export {
   BasicExample,
   URLParameters,
@@ -14,5 +15,6 @@ export {
   PreventingTransitionsExample,
   NoMatchExample,
   RecursiveExample,
-  SidebarExample
+  SidebarExample,
+  AnimationExample
 };
