@@ -13,7 +13,8 @@ import {
   BasicExample,
   URLParameters,
   AuthExample,
-  CustomLink
+  CustomLink,
+  PreventingTransitionsExample
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -34,7 +35,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <CustomLink />
+      <PreventingTransitionsExample />
     </Provider>,
     document.getElementById('root')
   );
