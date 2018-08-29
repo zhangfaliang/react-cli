@@ -31,7 +31,6 @@ class App extends Component {
 
   render() {
     const { pathname } = this.props;
-    console.log(process.env, '8888');
     return (
       <div className="App">
         <Helmet>
