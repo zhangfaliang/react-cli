@@ -18,7 +18,8 @@ import {
   NoMatchExample,
   RecursiveExample,
   SidebarExample,
-  AnimationExample
+  AnimationExample,
+  AmbiguousMatch
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -39,7 +40,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <AnimationExample />
+      <AmbiguousMatch />
     </Provider>,
     document.getElementById('root')
   );

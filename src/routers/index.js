@@ -7,6 +7,7 @@ import NoMatchExample from './NoMatch';
 import RecursiveExample from './recursive-paths';
 import SidebarExample from './Sidebar';
 import AnimationExample from './AnimatedTransitions';
+import AmbiguousMatch from './AmbiguousMatch';
 export {
   BasicExample,
   URLParameters,
@@ -16,5 +17,6 @@ export {
   NoMatchExample,
   RecursiveExample,
   SidebarExample,
-  AnimationExample
+  AnimationExample,
+  AmbiguousMatch
 };
