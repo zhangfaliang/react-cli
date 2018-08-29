@@ -15,7 +15,8 @@ import {
   AuthExample,
   CustomLink,
   PreventingTransitionsExample,
-  NoMatchExample
+  NoMatchExample,
+  RecursiveExample
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -36,7 +37,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <NoMatchExample />
+      <RecursiveExample />
     </Provider>,
     document.getElementById('root')
   );
