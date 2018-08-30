@@ -9,6 +9,7 @@ import SidebarExample from './Sidebar';
 import AnimationExample from './AnimatedTransitions';
 import AmbiguousMatch from './AmbiguousMatch';
 import RouteConfigExample from './RouterConfig';
+import ModalGallery from './ModalGallery';
 export {
   BasicExample,
   URLParameters,
@@ -20,5 +21,6 @@ export {
   SidebarExample,
   AnimationExample,
   AmbiguousMatch,
-  RouteConfigExample
+  RouteConfigExample,
+  ModalGallery
 };

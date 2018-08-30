@@ -20,7 +20,8 @@ import {
   SidebarExample,
   AnimationExample,
   AmbiguousMatch,
-  RouteConfigExample
+  RouteConfigExample,
+  ModalGallery
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -41,7 +42,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <RouteConfigExample />
+      <ModalGallery />
     </Provider>,
     document.getElementById('root')
   );

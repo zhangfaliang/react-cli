@@ -21,13 +21,13 @@ import homeSaga from './sagas/homeSaga';
 import BasicExample from './routers/basic';
 // import asyncComponent from './components/AsyncComponent';
 import MyLoadingComponent from './components/MyLoadingComponent';
-//const history = createBrowserHistory({
-// basename: '/prefix/',
-// hashType: 'slash',
-// getUserConfirmation: (message, callback) => callback(window.confirm(message)),
-// initialEntries: ['/one', '/two', { pathname: '/three' }],
-// initialIndex: 1
-//});
+const history = createBrowserHistory({
+  basename: '/prefix/',
+  hashType: 'slash',
+  getUserConfirmation: (message, callback) => callback(window.confirm(message)),
+  initialEntries: ['/one', '/two', { pathname: '/three' }],
+  initialIndex: 1
+});
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -48,42 +48,39 @@ sagaMiddleware.run(homeSaga);
 const render = () => {
   // this function will be reused
   ReactDOM.render(
-    // <AppContainer>
-    //   <Provider store={store}>
-    //     <ConnectedRouter history={history}>
-    //       <Switch>
-    //         <Route
-    //           exact
-    //           path="/"
-    //           component={Loadable({
-    //             loader: () => import('./App'),
-    //             loading: MyLoadingComponent
-    //           })}
-    //         />
-    //         <Route
-    //           exact
-    //           path="/home"
-    //           component={Loadable({
-    //             loader: () => import('./components/home'),
-    //             loading: MyLoadingComponent
-    //           })}
-    //         />
-    //         <Route
-    //           exact
-    //           path="/hello"
-    //           component={Loadable({
-    //             loader: () => import('./components/hello'),
-    //             loading: MyLoadingComponent
-    //           })}
-    //         />
-    //         <Route render={() => <div>Miss</div>} />
-    //       </Switch>
-    //     </ConnectedRouter>
-    //   </Provider>
-    // </AppContainer>
-    <Provider store={store}>
-      <BasicExample />
-    </Provider>,
+    <AppContainer>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={Loadable({
+                loader: () => import('./App'),
+                loading: MyLoadingComponent
+              })}
+            />
+            <Route
+              exact
+              path="/home"
+              component={Loadable({
+                loader: () => import('./components/home'),
+                loading: MyLoadingComponent
+              })}
+            />
+            <Route
+              exact
+              path="/hello"
+              component={Loadable({
+                loader: () => import('./components/hello'),
+                loading: MyLoadingComponent
+              })}
+            />
+            <Route render={() => <div>Miss</div>} />
+          </Switch>
+        </ConnectedRouter>
+      </Provider>
+    </AppContainer>,
     document.getElementById('root')
   );
 };
