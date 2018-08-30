@@ -10,6 +10,7 @@ import AnimationExample from './AnimatedTransitions';
 import AmbiguousMatch from './AmbiguousMatch';
 import RouteConfigExample from './RouterConfig';
 import ModalGallery from './ModalGallery';
+import Philosophy from './Philosopy';
 export {
   BasicExample,
   URLParameters,
@@ -22,5 +23,6 @@ export {
   AnimationExample,
   AmbiguousMatch,
   RouteConfigExample,
-  ModalGallery
+  ModalGallery,
+  Philosophy
 };
