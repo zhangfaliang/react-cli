@@ -22,7 +22,8 @@ import {
   AmbiguousMatch,
   RouteConfigExample,
   ModalGallery,
-  Philosophy
+  Philosophy,
+  BaseComponent
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -43,7 +44,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <Philosophy />
+      <BaseComponent />
     </Provider>,
     document.getElementById('root')
   );

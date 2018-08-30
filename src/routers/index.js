@@ -11,6 +11,7 @@ import AmbiguousMatch from './AmbiguousMatch';
 import RouteConfigExample from './RouterConfig';
 import ModalGallery from './ModalGallery';
 import Philosophy from './Philosopy';
+import BaseComponent from './BaseComponent';
 export {
   BasicExample,
   URLParameters,
@@ -24,5 +25,6 @@ export {
   AmbiguousMatch,
   RouteConfigExample,
   ModalGallery,
-  Philosophy
+  Philosophy,
+  BaseComponent
 };
