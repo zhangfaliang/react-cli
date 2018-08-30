@@ -12,6 +12,7 @@ import RouteConfigExample from './RouterConfig';
 import ModalGallery from './ModalGallery';
 import Philosophy from './Philosopy';
 import BaseComponent from './BaseComponent';
+import CodeSplitting from './CodeSplitting';
 export {
   BasicExample,
   URLParameters,
@@ -26,5 +27,6 @@ export {
   RouteConfigExample,
   ModalGallery,
   Philosophy,
-  BaseComponent
+  BaseComponent,
+  CodeSplitting
 };

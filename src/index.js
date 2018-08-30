@@ -23,7 +23,8 @@ import {
   RouteConfigExample,
   ModalGallery,
   Philosophy,
-  BaseComponent
+  BaseComponent,
+  CodeSplitting
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -44,7 +45,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <BaseComponent />
+      <CodeSplitting />
     </Provider>,
     document.getElementById('root')
   );
