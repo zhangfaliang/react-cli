@@ -9,10 +9,10 @@ import {
   routerMiddleware,
   ConnectedRouter
 } from 'connected-react-router';
-import { Route, Switch } from 'react-router'; // react-router v4
+import { Route, Switch, BrowserRouter } from 'react-router-dom'; // react-router v4
 import { AppContainer } from 'react-hot-loader'; /* react-hot-loader v3 */
-
 import { createBrowserHistory } from 'history';
+import { renderRoutes } from 'react-router-config';
 
 import './index.css';
 import rootReducer from './reducers/rootReducer';
@@ -33,7 +33,9 @@ import {
   ModalGallery,
   Philosophy,
   BaseComponent,
-  CodeSplitting
+  CodeSplitting,
+  StaticRouter,
+  routes
 } from './routers/index';
 import App from './App';
 
@@ -60,10 +62,15 @@ const render = () => {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           {/* place ConnectedRouter under Provider */}
-          <App />
+          <StaticRouter />
         </ConnectedRouter>
       </Provider>
     </AppContainer>,
+    // <Provider store={store}>
+    //   <BrowserRouter>
+    //     {renderRoutes(routes)}
+    //   </BrowserRouter>
+    // </Provider>,
     document.getElementById('root')
   );
 };

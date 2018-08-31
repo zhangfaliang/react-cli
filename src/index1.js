@@ -87,36 +87,36 @@ const render = () => {
 
 render();
 
-// if (module.hot) {
-//   module.hot.accept("./App", () => {
-//     /* For Webpack 2.x
-//        Need to disable babel ES2015 modules transformation in .babelrc
-//        presets: [
-//          ["es2015", { "modules": false }]
-//        ]
-//     */
-//     render();
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    /* For Webpack 2.x
+       Need to disable babel ES2015 modules transformation in .babelrc
+       presets: [
+         ["es2015", { "modules": false }]
+       ]
+    */
+    render();
 
-//     /* For Webpack 1.x
-//     const NextApp = require('./App').default
-//     renderWithHotReload(NextApp)
-//     */
-//   });
-// }
-// if (module.hot) {
-//   module.hot.accept("./reducers/rootReducer", () => {
-//     /* For Webpack 2.x
-//        Need to disable babel ES2015 modules transformation in .babelrc
-//        presets: [
-//          ["es2015", { "modules": false }]
-//        ]
-//     */
-//     store.replaceReducer(connectRouter(history)(rootReducer));
+    /* For Webpack 1.x
+    const NextApp = require('./App').default
+    renderWithHotReload(NextApp)
+    */
+  });
+}
+if (module.hot) {
+  module.hot.accept('./reducers/rootReducer', () => {
+    /* For Webpack 2.x
+       Need to disable babel ES2015 modules transformation in .babelrc
+       presets: [
+         ["es2015", { "modules": false }]
+       ]
+    */
+    store.replaceReducer(connectRouter(history)(rootReducer));
 
-//     /* For Webpack 1.x
-//     const nextRootReducer = require('./reducers').default
-//     store.replaceReducer(connectRouter(history)(nextRootReducer))
-//     */
-//   });
-// }
+    /* For Webpack 1.x
+    const nextRootReducer = require('./reducers').default
+    store.replaceReducer(connectRouter(history)(nextRootReducer))
+    */
+  });
+}
 registerServiceWorker();
