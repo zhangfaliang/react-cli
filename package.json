@@ -38,9 +38,10 @@
     "build": "REACT_APP_SECRET_TYPE=QA  npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow":"flow"
+    "flow": "flow"
   },
   "devDependencies": {
+    "react-addons-test-utils": "^15.6.2",
     "redux-devtools-extension": "^2.13.5"
   }
 }

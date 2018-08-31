@@ -24,7 +24,8 @@ import {
   ModalGallery,
   Philosophy,
   BaseComponent,
-  CodeSplitting
+  CodeSplitting,
+  ScrollToTopExample
 } from './routers/index';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -45,7 +46,7 @@ const render = () => {
   // this function will be reused
   ReactDOM.render(
     <Provider store={store}>
-      <CodeSplitting />
+      <ScrollToTopExample />
     </Provider>,
     document.getElementById('root')
   );

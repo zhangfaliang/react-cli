@@ -13,6 +13,7 @@ import ModalGallery from './ModalGallery';
 import Philosophy from './Philosopy';
 import BaseComponent from './BaseComponent';
 import CodeSplitting from './CodeSplitting';
+import ScrollToTopExample from './ScrollRestoration';
 export {
   BasicExample,
   URLParameters,
@@ -28,5 +29,6 @@ export {
   ModalGallery,
   Philosophy,
   BaseComponent,
-  CodeSplitting
+  CodeSplitting,
+  ScrollToTopExample
 };
