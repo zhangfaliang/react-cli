@@ -32,13 +32,18 @@ const BaseComponent = () => {
     <BrowserRouter>
       <Switch>
         {/* these are good */}
-        <Route exact path="/" component={Home} />
-        <Route
-          path="/about"
-          render={props => <About {...props} extra={someVariable} />}
-        />
-        {/* do not do this */}
-        <Route path="/contact" component={Contact} />
+        <div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route
+              path="/about"
+              render={props => <About {...props} extra={someVariable} />}
+            />
+            {/* do not do this */}
+            <Route path="/contact" component={Contact} />
+            <Route render={() => <div>nomatch</div>} />
+          </Switch>
+        </div>
       </Switch>
     </BrowserRouter>
   );

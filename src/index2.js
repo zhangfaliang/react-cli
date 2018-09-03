@@ -62,7 +62,7 @@ const render = () => {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           {/* place ConnectedRouter under Provider */}
-          <BaseComponent />
+          <StaticRouter />
         </ConnectedRouter>
       </Provider>
     </AppContainer>,
