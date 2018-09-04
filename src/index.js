@@ -2,6 +2,7 @@ import { renderRoutes, matchRoutes } from 'react-router-config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, withRouter, Route } from 'react-router-dom';
+console.log(process.env.REACT_APP_SECRET_TYPE);
 
 const Root = ({ route }) => (
   <div>

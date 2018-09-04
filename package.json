@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "better-npm-run": "^0.1.1",
     "bootstrap": "3",
     "connected-react-router": "^4.4.1",
     "husky": "^0.14.3",
@@ -35,12 +36,40 @@
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "precommit": "lint-staged",
     "start-js": "react-scripts start",
-    "start": "REACT_APP_SECRET_TYPE=DEV npm-run-all -p watch-css start-js  ",
+    "start": "better-npm-run start",
+    "qa": "better-npm-run qa",
     "build-js": "react-scripts build",
-    "build": "REACT_APP_SECRET_TYPE=QA  npm-run-all build-css build-js",
+    "build:qa": "better-npm-run build:qa ",
+    "build:prod": "better-npm-run build:prod ",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow"
+  },
+  "betterScripts":{
+      "start":{
+        "command":"npm-run-all -p watch-css start-js",
+        "env":{
+          "REACT_APP_SECRET_TYPE":"DEV"
+        }
+      },
+      "qa":{
+        "command":"npm-run-all -p watch-css start-js",
+        "env":{
+          "REACT_APP_SECRET_TYPE":"QA"
+        }
+      },
+      "build:qa":{
+        "command":"npm-run-all build-css build-js",
+        "env":{
+          "REACT_APP_SECRET_TYPE":"QA"
+        }
+      },
+      "build:prod":{
+        "command":"npm-run-all build-css build-js",
+        "env":{
+          "REACT_APP_SECRET_TYPE":"PROD"
+        }
+      }
   },
   "devDependencies": {
     "react-addons-test-utils": "^15.6.2",
