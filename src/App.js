@@ -31,6 +31,8 @@ class App extends Component {
 
   render() {
     const { pathname } = this.props;
+    console.log(this.props);
+
     return (
       <div className="App">
         <Helmet>
@@ -56,10 +58,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  pathname: state.router.location.pathname,
-  search: state.router.location.search,
-  hash: state.router.location.hash,
-  router: state.router
+  // pathname: state.router.location.pathname,
+  // search: state.router.location.search,
+  // hash: state.router.location.hash,
+  // router: state.router
 });
 const mapDispatchToProps = dispatch => {
   return {

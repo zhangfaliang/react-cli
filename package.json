@@ -37,6 +37,7 @@
     "precommit": "lint-staged",
     "start-js": "react-scripts start",
     "start": "better-npm-run start",
+    "start:dev": "npm-run-all -p watch-css start-js",
     "qa": "better-npm-run qa",
     "build-js": "react-scripts build",
     "build:qa": "better-npm-run build:qa ",
@@ -49,7 +50,8 @@
       "start":{
         "command":"npm-run-all -p watch-css start-js",
         "env":{
-          "REACT_APP_SECRET_TYPE":"DEV"
+          "REACT_APP_SECRET_TYPE":"DEV",
+          "REACT_APP_WEBSITE_NAME":"test title"
         }
       },
       "qa":{
