@@ -1,10 +1,10 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { grandChildActionType } from '../actions/grandChildAction';
-import { testPost } from '../service';
+import { testPost, getUnionLogin } from '../service';
 function* getFetchData() {
   try {
     const data = yield testPost();
-    debugger;
+    const getData = yield getUnionLogin();
   } catch (error) {}
 }
 

@@ -77,7 +77,7 @@
     "/api": {
       "target": "http://qa.m.8win.com",
       "changeOrigin": true,
-      "pathRewrite": {"^/api": "/"},
+      "pathRewrite": {"^/api": ""},
       "ws": true
     },
     "/foo": {

@@ -105,7 +105,7 @@ export const get = ({
   proxyPath = PROXY_PATH,
   requestOptions,
   data,
-  contentType = 'application/json'
+  contentType = 'application/x-www-form-urlencoded'
 }) => {
   let requestinitOptions = { headers: { contentType } };
   if (isObject(requestOptions) && !isEmpty(requestOptions)) {
@@ -118,7 +118,7 @@ export const get = ({
   };
   return requestFetch(
     new Request(
-      `${proxyPath}${requestPath}`,
+      `${proxyPath}${requestPath}${urlParams}`,
       creactFetchOptions(requestinitOptions)
     )
   );

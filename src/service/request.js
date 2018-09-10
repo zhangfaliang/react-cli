@@ -1,10 +1,13 @@
-function checkStatus(response) {
+import { ReconnectionAPI } from './reconnectionAPI';
+function checkStatus(request, response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   } else {
-    const error = new Error(response.statusText);
-    error.response = response;
-    throw error;
+    const reconnectionAPI = new ReconnectionAPI(request, 2000, 4000);
+    return reconnectionAPI.updateApi();
+    // const error = new Error(response.statusText);
+    // error.response = response;
+    // throw error;
   }
 }
 
@@ -18,7 +21,7 @@ function parseContentType(response) {
 
 export const requestFetch = request => {
   return fetch(request)
-    .then(checkStatus)
+    .then(checkStatus.bind(null, request))
     .then(parseContentType)
     .catch(error => {
       console.log(
