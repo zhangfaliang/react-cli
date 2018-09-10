@@ -73,6 +73,27 @@
         }
       }
   },
+  "proxy": {
+    "/api": {
+      "target": "http://qa.m.8win.com",
+      "changeOrigin": true,
+      "pathRewrite": {"^/api": "/"},
+      "ws": true
+    },
+    "/foo": {
+      "target": "<url_2>",
+      "ssl": true,
+      "pathRewrite": {
+        "^/foo": "/foo/beta"
+      }
+    },
+    "/bar/[^/]*[.]html": {
+      "target": "<url_3>"
+    },
+    "/baz/.*/.*[.]html": {
+      "target": "<url_4>"
+    }
+  },
   "devDependencies": {
     "react-addons-test-utils": "^15.6.2",
     "redux-devtools-extension": "^2.13.5"
