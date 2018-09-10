@@ -46,38 +46,40 @@
     "eject": "react-scripts eject",
     "flow": "flow"
   },
-  "betterScripts":{
-      "start":{
-        "command":"npm-run-all -p watch-css start-js",
-        "env":{
-          "REACT_APP_SECRET_TYPE":"DEV",
-          "REACT_APP_WEBSITE_NAME":"test title"
-        }
-      },
-      "qa":{
-        "command":"npm-run-all -p watch-css start-js",
-        "env":{
-          "REACT_APP_SECRET_TYPE":"QA"
-        }
-      },
-      "build:qa":{
-        "command":"npm-run-all build-css build-js",
-        "env":{
-          "REACT_APP_SECRET_TYPE":"QA"
-        }
-      },
-      "build:prod":{
-        "command":"npm-run-all build-css build-js",
-        "env":{
-          "REACT_APP_SECRET_TYPE":"PROD"
-        }
+  "betterScripts": {
+    "start": {
+      "command": "npm-run-all -p watch-css start-js",
+      "env": {
+        "REACT_APP_SECRET_TYPE": "DEV",
+        "REACT_APP_WEBSITE_NAME": "test title"
       }
+    },
+    "qa": {
+      "command": "npm-run-all -p watch-css start-js",
+      "env": {
+        "REACT_APP_SECRET_TYPE": "QA"
+      }
+    },
+    "build:qa": {
+      "command": "npm-run-all build-css build-js",
+      "env": {
+        "REACT_APP_SECRET_TYPE": "QA"
+      }
+    },
+    "build:prod": {
+      "command": "npm-run-all build-css build-js",
+      "env": {
+        "REACT_APP_SECRET_TYPE": "PROD"
+      }
+    }
   },
   "proxy": {
     "/api": {
       "target": "http://qa.m.8win.com",
       "changeOrigin": true,
-      "pathRewrite": {"^/api": ""},
+      "pathRewrite": {
+        "^/api": ""
+      },
       "ws": true
     },
     "/foo": {
