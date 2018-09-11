@@ -23,7 +23,8 @@
     "react-router-dom": "4.3.1",
     "react-scripts": "1.1.5",
     "redux": "^4.0.0",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "source-map-explorer": "^1.6.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -46,7 +47,9 @@
     "eject": "react-scripts eject",
     "flow": "flow",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "analyze": "source-map-explorer build/static/js/main.*"
+
   },
   "betterScripts": {
     "start": {
@@ -99,14 +102,14 @@
     }
   },
   "devDependencies": {
-    "@storybook/cli": "^3.4.10",
-    "react-addons-test-utils": "^15.6.2",
-    "redux-devtools-extension": "^2.13.5",
-    "@storybook/react": "^3.4.10",
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/addon-links": "^3.4.10",
     "@storybook/addons": "^3.4.10",
+    "@storybook/cli": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "react-addons-test-utils": "^15.6.2",
+    "redux-devtools-extension": "^2.13.5"
   }
 }
