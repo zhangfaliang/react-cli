@@ -1,3 +1,4 @@
+import adaptive from 'adaptive.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -13,7 +14,6 @@ import {
   ConnectedRouter
 } from 'connected-react-router';
 import { renderRoutes } from 'react-router-config';
-
 import rootSaga from './sagas/rootSaga';
 import App from './components/App';
 import { route } from './route/route';
@@ -21,6 +21,11 @@ import registerServiceWorker from './registerServiceWorker';
 
 // const worker = new Worker('./worker.js')
 // console.log(worker,'444444444');
+adaptive.desinWidth = 640;
+adaptive.maxWidth = 640;
+adaptive.baseFont = 24;
+adaptive.init();
+console.log(adaptive);
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();

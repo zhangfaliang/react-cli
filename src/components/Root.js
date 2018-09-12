@@ -1,4 +1,5 @@
 import React from 'react';
+import './root.css';
 import { renderRoutes } from 'react-router-config';
 
 import 'normalize.css';
