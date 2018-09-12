@@ -1,6 +1,7 @@
 import Loadable from 'react-loadable';
 import Root from '../components/Root.js';
 const Loading = () => 'loading';
+
 export const route = [
   {
     component: Root,

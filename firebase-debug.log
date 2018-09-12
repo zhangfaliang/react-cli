@@ -1,179 +1,19 @@
-[debug] [2018-09-11T08:23:26.659Z] ----------------------------------------------------------------------
-[debug] [2018-09-11T08:23:26.661Z] Command:       /usr/local/bin/node /Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/.bin/firebase login
-[debug] [2018-09-11T08:23:26.661Z] CLI Version:   4.2.1
-[debug] [2018-09-11T08:23:26.661Z] Platform:      darwin
-[debug] [2018-09-11T08:23:26.661Z] Node Version:  v8.10.0
-[debug] [2018-09-11T08:23:26.662Z] Time:          Tue Sep 11 2018 16:23:26 GMT+0800 (CST)
-[debug] [2018-09-11T08:23:26.662Z] ----------------------------------------------------------------------
+[debug] [2018-09-11T09:43:37.214Z] ----------------------------------------------------------------------
+[debug] [2018-09-11T09:43:37.216Z] Command:       /usr/local/bin/node /Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/.bin/firebase login
+[debug] [2018-09-11T09:43:37.216Z] CLI Version:   4.2.1
+[debug] [2018-09-11T09:43:37.216Z] Platform:      darwin
+[debug] [2018-09-11T09:43:37.216Z] Node Version:  v8.10.0
+[debug] [2018-09-11T09:43:37.217Z] Time:          Tue Sep 11 2018 17:43:37 GMT+0800 (CST)
+[debug] [2018-09-11T09:43:37.217Z] ----------------------------------------------------------------------
 [debug] 
 [info] 
 [info] Visit this URL on any device to log in:
-[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=734693661&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=402657505&redirect_uri=http%3A%2F%2Flocalhost%3A9005
 [info] 
 [info] Waiting for authentication...
-[debug] [2018-09-11T08:24:47.721Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
+[debug] [2018-09-11T09:43:48.275Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
 
-[debug] [2018-09-11T08:24:59.430Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:25:28.446Z] ----------------------------------------------------------------------
-[debug] [2018-09-11T08:25:28.448Z] Command:       /usr/local/bin/node /Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/.bin/firebase login
-[debug] [2018-09-11T08:25:28.449Z] CLI Version:   4.2.1
-[debug] [2018-09-11T08:25:28.449Z] Platform:      darwin
-[debug] [2018-09-11T08:25:28.449Z] Node Version:  v8.10.0
-[debug] [2018-09-11T08:25:28.449Z] Time:          Tue Sep 11 2018 16:25:28 GMT+0800 (CST)
-[debug] [2018-09-11T08:25:28.449Z] ----------------------------------------------------------------------
-[debug] 
-[info] 
-[info] Visit this URL on any device to log in:
-[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=1016906386&redirect_uri=http%3A%2F%2Flocalhost%3A9005
-[info] 
-[info] Waiting for authentication...
-[debug] [2018-09-11T08:25:57.340Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:26:35.996Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:26:41.357Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:26:41.566Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:27:12.714Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:27:51.524Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:27:56.887Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:27:57.097Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:29:30.313Z] ----------------------------------------------------------------------
-[debug] [2018-09-11T08:29:30.315Z] Command:       /usr/local/bin/node /Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/.bin/firebase login
-[debug] [2018-09-11T08:29:30.316Z] CLI Version:   4.2.1
-[debug] [2018-09-11T08:29:30.316Z] Platform:      darwin
-[debug] [2018-09-11T08:29:30.316Z] Node Version:  v8.10.0
-[debug] [2018-09-11T08:29:30.316Z] Time:          Tue Sep 11 2018 16:29:30 GMT+0800 (CST)
-[debug] [2018-09-11T08:29:30.316Z] ----------------------------------------------------------------------
-[debug] 
-[info] 
-[info] Visit this URL on any device to log in:
-[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=521340079&redirect_uri=http%3A%2F%2Flocalhost%3A9005
-[info] 
-[info] Waiting for authentication...
-[debug] [2018-09-11T08:29:51.655Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:31:07.099Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:31:14.248Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:31:30.955Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:32:29.514Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:32:46.234Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:32:46.237Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:34:01.617Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:35:29.025Z] ----------------------------------------------------------------------
-[debug] [2018-09-11T08:35:29.027Z] Command:       /usr/local/bin/node /Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/.bin/firebase login
-[debug] [2018-09-11T08:35:29.027Z] CLI Version:   4.2.1
-[debug] [2018-09-11T08:35:29.027Z] Platform:      darwin
-[debug] [2018-09-11T08:35:29.027Z] Node Version:  v8.10.0
-[debug] [2018-09-11T08:35:29.028Z] Time:          Tue Sep 11 2018 16:35:29 GMT+0800 (CST)
-[debug] [2018-09-11T08:35:29.028Z] ----------------------------------------------------------------------
-[debug] 
-[info] 
-[info] Visit this URL on any device to log in:
-[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=264798522&redirect_uri=http%3A%2F%2Flocalhost%3A9005
-[info] 
-[info] Waiting for authentication...
-[debug] [2018-09-11T08:35:41.263Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:36:56.612Z] Token Fetch Error: Error
-    at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
-    at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
-    at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
-    at emitOne (events.js:116:13)
-    at Request.emit (events.js:211:7)
-    at Request.onRequestError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:877:8)
-    at emitOne (events.js:116:13)
-    at ClientRequest.emit (events.js:211:7)
-    at TLSSocket.socketErrorListener (_http_client.js:387:9)
-    at emitOne (events.js:116:13)
-[debug] [2018-09-11T08:37:28.376Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
-
-[debug] [2018-09-11T08:38:43.773Z] Token Fetch Error: Error
+[debug] [2018-09-11T09:45:03.845Z] Token Fetch Error: Error
     at new FirebaseError (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/error.js:11:16)
     at Request._callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/firebase-tools/lib/api.js:34:11)
     at self.callback (/Users/shinyzhang/test/choose-staging/cra/react-cra/node_modules/request/request.js:185:22)
