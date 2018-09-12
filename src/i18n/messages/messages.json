@@ -1,0 +1,30 @@
+[
+  {
+    "id": "app.title",
+    "defaultMessage": "Welcome to React",
+    "filepath": "src/components/Root.js"
+  },
+  {
+    "id": "app.content1",
+    "defaultMessage": "To get started, edit",
+    "filepath": "src/components/Root.js"
+  },
+  {
+    "id": "app.content2",
+    "defaultMessage": "and save to reload.",
+    "filepath": "src/components/Root.js"
+  },
+  {
+    "id": "app.test",
+    "defaultMessage": ".test",
+    "filepath": "src/components/Root.js"
+  },
+  {
+    "id": "app.obj",
+    "defaultMessage": {
+      "objtest": "hello",
+      "arr": [1, 3, 4]
+    },
+    "filepath": "src/components/Root.js"
+  }
+]

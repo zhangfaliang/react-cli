@@ -14,6 +14,11 @@ import {
   ConnectedRouter
 } from 'connected-react-router';
 import { renderRoutes } from 'react-router-config';
+import { IntlProvider, addLocaleData } from 'react-intl';
+import arLocaleData from 'react-intl/locale-data/ar';
+import esLocaleData from 'react-intl/locale-data/es';
+import * as translations from './i18n/locales';
+
 import rootSaga from './sagas/rootSaga';
 import App from './components/App';
 import { route } from './route/route';
@@ -25,7 +30,8 @@ adaptive.desinWidth = 640;
 adaptive.maxWidth = 640;
 adaptive.baseFont = 24;
 adaptive.init();
-console.log(adaptive);
+addLocaleData(arLocaleData);
+addLocaleData(esLocaleData);
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
@@ -41,11 +47,15 @@ const store = createStore(
   )
 );
 sagaMiddleware.run(rootSaga);
+const locale = window.location.search.replace('?locale=', '') || 'en';
+const messages = translations[locale];
 const render = () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <BrowserRouter>{renderRoutes(route)}</BrowserRouter>
-    </Provider>,
+    <IntlProvider locale={locale} key={locale} messages={messages}>
+      <Provider store={store}>
+        <BrowserRouter>{renderRoutes(route)}</BrowserRouter>
+      </Provider>
+    </IntlProvider>,
 
     document.getElementById('root')
   );
