@@ -42,7 +42,7 @@ i18n.use(LanguageDetector).init(
           name: 'fan'
         },
         view: {
-          appName: 'lootery'
+          appName: 'lootery{{name}}'
         },
         nav: {
           appName: 'ZY',
@@ -67,7 +67,11 @@ i18n.use(LanguageDetector).init(
     },
 
     react: {
-      wait: true
+      wait: false,
+      withRef: false,
+      bindI18n: 'languageChanged loaded',
+      bindStore: 'added removed',
+      nsMode: 'default'
     }
   },
   (err, t) => {

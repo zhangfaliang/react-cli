@@ -16,4 +16,6 @@ function TranslatebleHOC(props) {
     </div>
   );
 }
-export default translate('view')(TranslatebleHOC);
+export default translate('view', { wait: true /*// options*/ })(
+  TranslatebleHOC
+);

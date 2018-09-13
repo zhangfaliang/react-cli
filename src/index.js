@@ -53,7 +53,13 @@ const locale = window.location.search.replace('?locale=', '') || 'en';
 //const messages = translations[locale];
 //translate.setI18n(i18n)
 // 您可以使用setI18n函数设置i18n实例，以避免使用i18nextProvider：
-
+// translate.setDefaults({ // 使用setdefault
+//   wait: false,
+//   withRef: false,
+//   bindI18n: 'languageChanged loaded',
+//   bindStore: 'added removed',
+//   nsMode: 'default'
+// });
 const render = () => {
   ReactDOM.render(
     <I18nextProvider i18n={i18n}>
