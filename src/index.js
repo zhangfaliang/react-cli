@@ -14,10 +14,12 @@ import {
   ConnectedRouter
 } from 'connected-react-router';
 import { renderRoutes } from 'react-router-config';
-import { IntlProvider, addLocaleData } from 'react-intl';
-import arLocaleData from 'react-intl/locale-data/ar';
-import esLocaleData from 'react-intl/locale-data/es';
-import * as translations from './i18n/locales';
+// import { IntlProvider, addLocaleData } from 'react-intl';
+// import arLocaleData from 'react-intl/locale-data/ar';
+// import esLocaleData from 'react-intl/locale-data/es';
+//import * as translations from './i18n/locales';
+import i18n from './i18n/locales/testI18';
+import { I18nextProvider, translate } from 'react-i18next';
 
 import rootSaga from './sagas/rootSaga';
 import App from './components/App';
@@ -30,8 +32,8 @@ adaptive.desinWidth = 640;
 adaptive.maxWidth = 640;
 adaptive.baseFont = 24;
 adaptive.init();
-addLocaleData(arLocaleData);
-addLocaleData(esLocaleData);
+// addLocaleData(arLocaleData);
+// addLocaleData(esLocaleData);
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
@@ -48,14 +50,14 @@ const store = createStore(
 );
 sagaMiddleware.run(rootSaga);
 const locale = window.location.search.replace('?locale=', '') || 'en';
-const messages = translations[locale];
+//const messages = translations[locale];
 const render = () => {
   ReactDOM.render(
-    <IntlProvider locale={locale} key={locale} messages={messages}>
+    <I18nextProvider i18n={i18n}>
       <Provider store={store}>
         <BrowserRouter>{renderRoutes(route)}</BrowserRouter>
       </Provider>
-    </IntlProvider>,
+    </I18nextProvider>,
 
     document.getElementById('root')
   );

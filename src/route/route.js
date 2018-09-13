@@ -1,10 +1,11 @@
 import Loadable from 'react-loadable';
-import Root from '../components/Root.js';
+import Root from '../App';
+import TranslatableView from '../components/react-i18n/HOCTest';
 const Loading = () => 'loading';
 
 export const route = [
   {
-    component: Root,
+    component: TranslatableView,
     routes: [
       {
         path: '/',
