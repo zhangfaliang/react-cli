@@ -51,6 +51,9 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 const locale = window.location.search.replace('?locale=', '') || 'en';
 //const messages = translations[locale];
+//translate.setI18n(i18n)
+// 您可以使用setI18n函数设置i18n实例，以避免使用i18nextProvider：
+
 const render = () => {
   ReactDOM.render(
     <I18nextProvider i18n={i18n}>
