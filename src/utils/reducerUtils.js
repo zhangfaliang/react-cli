@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import combineReducers from '../reducers/rootReducer';
-import { makeAllReducer } from './reducerUtils';
 export const makeAllReducer = asyncReducers =>
   combineReducers({
     ...asyncReducers
