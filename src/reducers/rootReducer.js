@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux';
-import homeReducer from './homeReducer';
-import grandChildData from './grandChildReducer';
+const initalState = {
+  auth: false
+};
 
-export default combineReducers({
-  homeReducer,
-  grandChildData
-});
+export default function rootReducer(state = initalState, action) {
+  return state;
+}

@@ -5,15 +5,23 @@ import TranslateHOC from '../components/react-i18n/TranslateHOC';
 import TransComponent from '../components/react-i18n/TransComponent';
 const Loading = () => 'loading';
 
-export const route = [
+export default [
   {
     component: TransComponent,
     routes: [
       {
-        path: '/',
+        path: '/home',
         exact: true,
         component: Loadable({
           loader: () => import('../components/Home.js'),
+          loading: Loading
+        })
+      },
+      {
+        path: '/hello',
+        exact: true,
+        component: Loadable({
+          loader: () => import('../components/Hello'),
           loading: Loading
         })
       },

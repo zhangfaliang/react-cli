@@ -4,9 +4,8 @@ export const makeAllReducer = asyncReducers =>
     ...asyncReducers
   });
 
-export const injectReducer = (store, { reducer }) => {
-  if (Object.hasOwnProperty.call(store.asyncReducers, reducer.name)) return;
-
-  store.asyncReducers[reducer.name] = reducer;
-  store.replaceReducer(makeAllReducer(store.asyncReducers));
+export const injectReducer = (store, reducer) => {
+  if (Object.hasOwnProperty.call(store.asyncReducer, reducer.name)) return;
+  store.asyncReducer[reducer.name] = reducer;
+  store.replaceReducer(makeAllReducer(store.asyncReducer));
 };

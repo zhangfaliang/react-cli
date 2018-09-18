@@ -1,5 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './Root';
+import { renderRoutes } from 'react-router-config';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { I18nextProvider, translate } from 'react-i18next';
+import adaptive from 'adaptive.js';
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+import route from './route/route';
+import createStore from './utils/createStore';
+import rootReducer from './reducers/rootReducer';
+import i18n from './i18n/locales/testI18';
+
+adaptive.desinWidth = 640;
+adaptive.maxWidth = 640;
+adaptive.baseFont = 24;
+adaptive.init();
+export const store = createStore(
+  {},
+  {
+    [`${rootReducer.name}`]: rootReducer
+  }
+);
+ReactDOM.render(
+  <Provider store={store}>
+    <I18nextProvider i18n={i18n}>
+      <BrowserRouter>{renderRoutes(route)}</BrowserRouter>
+    </I18nextProvider>
+  </Provider>,
+  document.getElementById('root')
+);
