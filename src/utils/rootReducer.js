@@ -1,6 +1,4 @@
-import { createReducer } from './reducerUtils';
-export const key = 'root';
-export const ROOT_AUTH = `${key}/ROOT_AUTH`;
+export const ROOT_AUTH = `root/ROOT_AUTH`;
 
 export const auth = () => ({
   type: ROOT_AUTH,
@@ -10,15 +8,15 @@ export const actions = {
   auth
 };
 
-const ACTION_HANLDERS = {
-  [ROOT_AUTH]: (state, action) => ({
-    ...state,
-    auth: action.payload
-  })
-};
-
 const initalState = {
   auth: false
 };
 
-export default createReducer(initalState, ACTION_HANLDERS);
+export default function rootReducer(state = initalState, action) {
+  switch (action.type) {
+    case 'root/AUTH':
+      return state;
+    default:
+      return state;
+  }
+}

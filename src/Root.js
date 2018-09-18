@@ -7,12 +7,12 @@ import { route } from './route/route';
 
 import createStore from './utils/createStore';
 import { injectReducer } from './utils/reducerUtils';
-import reducer, { key } from './utils/rootReducer';
+import reducer from './utils/rootReducer';
 
 export const store = createStore(
   {},
   {
-    [key]: reducer
+    [`${reducer.name}`]: reducer
   }
 );
 const Loading = () => <div>loading</div>;
