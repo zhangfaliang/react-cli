@@ -10,8 +10,10 @@ function TransComponent({ t, route, match, history }) {
       Hello <strong title={t('nameTitle')}>{'345'}</strong>, you have {23}
       ----
       {t('appName', { name: 'shiny' })}
-      ----- unread message. <Link to="/home">home</Link>.
-      <Link to="/hello">hello</Link>.{renderRoutes(route.routes)}
+      ----- unread message. <Link to="/home">home</Link>.<hr />
+      <Link to="/hello">hello</Link>.<hr />
+      <Link to="/child/02/grand-child"> child/02/grand-child</Link>.
+      {renderRoutes(route.routes)}
     </Trans>
   );
 }

@@ -18,7 +18,7 @@ adaptive.init();
 export const store = createStore(
   {},
   {
-    [`${rootReducer.name}`]: rootReducer
+    global: rootReducer
   }
 );
 ReactDOM.render(

@@ -1,8 +1,10 @@
 import React from 'react';
-import { injectReducer } from '../utils/reducerUtils';
+import { injectReducer, injectSagas } from '../utils/reducerUtils';
 import { store } from '../index';
 import reducer from '../reducers/home';
-injectReducer(store, reducer);
+import homeSaga from '../sagas/homeSaga';
+injectReducer(store, 'Home', reducer);
+injectSagas(store, homeSaga);
 export default ({ route }) => (
   <div>
     <h2>Home</h2>

@@ -21,4 +21,4 @@ function* listenPushPath() {
   );
 }
 
-export default listenPushPath;
+export default [listenPushPath];

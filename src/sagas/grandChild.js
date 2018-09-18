@@ -15,4 +15,4 @@ function* linstenGetGrandData(params) {
   yield takeLatest(grandChildActionType.GRAND_CHILD_LOAD_DATA, getFetchData);
 }
 
-export default linstenGetGrandData;
+export default [linstenGetGrandData];
