@@ -10,7 +10,7 @@ class HOCTestCompoennet extends React.Component {
     return (
       <div>
         <h1>{t('appName')}</h1>
-        <button onClick={() => toggle('de')}>{t('linkDE')}</button>
+        <button onClick={() => toggle('zh')}>{t('linkDE')}</button>
         <button onClick={() => toggle('en')}>{t('linkEN')}</button>
         <a href="https://github.com/i18next/react-i18next" target="_blank">
           {t('nav:link1')}
