@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadData } from '../actions/grandChildAction';
+import { useSagaAndUseConnectedReactRouter } from '../actions/homeAction';
 const GrandChild = props => {
   console.log(props);
 
@@ -10,6 +11,7 @@ const GrandChild = props => {
       <div
         onClick={() => {
           props.loadData();
+          props.useSagaAndUseConnectedReactRouter();
         }}
       >
         {props.someProp}
@@ -21,7 +23,9 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadData: () => dispatch(loadData())
+    loadData: () => dispatch(loadData()),
+    useSagaAndUseConnectedReactRouter: () =>
+      dispatch(useSagaAndUseConnectedReactRouter())
   };
 };
 

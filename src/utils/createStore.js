@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import { makeAllReducer } from './reducerUtils';
+import { makeAllReducer } from './getInjectAsync';
 import globalSaga from '../sagas/rootSaga';
 const sagaMiddleware = createSagaMiddleware();
 let composeFn = compose;
@@ -21,7 +21,7 @@ export default (initialState, initialRuducer) => {
   );
   store.runSaga = sagaMiddleware.run;
   globalSaga.map(store.runSaga);
-  store.asyncReducer = {
+  store.asyncReducers = {
     ...initialRuducer
   };
   return store;

@@ -1,10 +1,9 @@
 import React from 'react';
-import { injectReducer, injectSagas } from '../utils/reducerUtils';
+import { getAsyncInjectors } from '../utils/getInjectAsync';
 import { store } from '../index';
 import reducer from '../reducers/home';
-import homeSaga from '../sagas/homeSaga';
-injectReducer(store, 'Home', reducer);
-injectSagas(store, homeSaga);
+import sagas from '../sagas/homeSaga';
+getAsyncInjectors({ reducer, reducernNme: 'Home', sagas, store });
 export default ({ route }) => (
   <div>
     <h2>Home</h2>

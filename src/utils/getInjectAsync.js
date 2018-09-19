@@ -30,15 +30,15 @@ export const makeAllReducer = asyncReducers =>
     ...asyncReducers
   });
 
-export const injectReducer = (store, name, reducer) => {
-  //checkStore(store)
+export const injectReducer = (store, reducernNme, reducer) => {
   invariant(
-    isString(name) && !isEmpty(name) && isFunction(reducer),
+    isString(reducernNme) && !isEmpty(reducernNme) && isFunction(reducer),
     '(app/utils...) injectAsyncReducer: Expected `asyncReducer` to be a reducer function'
   );
-  if (Object.hasOwnProperty.call(store.asyncReducer, name)) return;
-  store.asyncReducer[name] = reducer;
-  store.replaceReducer(makeAllReducer(store.asyncReducer));
+
+  if (Object.hasOwnProperty.call(store.asyncReducers, reducernNme)) return;
+  store.asyncReducers[reducernNme] = reducer;
+  store.replaceReducer(makeAllReducer(store.asyncReducers));
 };
 
 export function injectSagas(store, sagas) {
@@ -54,3 +54,9 @@ export function injectSagas(store, sagas) {
 
   sagas.map(store.runSaga);
 }
+
+export const getAsyncInjectors = ({ reducer, reducernNme, sagas, store }) => {
+  checkStore(store);
+  if (!isEmpty(reducer)) injectReducer(store, reducernNme, reducer);
+  if (!isEmpty(sagas)) injectSagas(store, sagas);
+};
