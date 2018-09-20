@@ -63,34 +63,50 @@
       "command": "npm-run-all -p watch-css start-js",
       "env": {
         "REACT_APP_SECRET_TYPE": "DEV",
-        "REACT_APP_WEBSITE_NAME": "test title"
+        "REACT_APP_WEBSITE_NAME": "test title",
+        "REACT_APP_PRODUCT_PROXY_PATH":"/dev/api",
+        "REACT_APP_PRODUCT_REQUEST_PATH":"/command/execute"
       }
     },
     "qa": {
       "command": "npm-run-all -p watch-css start-js",
       "env": {
-        "REACT_APP_SECRET_TYPE": "QA"
+        "REACT_APP_SECRET_TYPE": "QA",
+        "REACT_APP_PRODUCT_PROXY_PATH":"/qa/api",
+        "REACT_APP_PRODUCT_REQUEST_PATH":"/command/execute"
       }
     },
     "build:qa": {
       "command": "npm-run-all build-css build-js",
       "env": {
-        "REACT_APP_SECRET_TYPE": "QA"
+        "REACT_APP_SECRET_TYPE": "QA",
+        "REACT_APP_PRODUCT_PROXY_PATH":"",
+        "REACT_APP_PRODUCT_REQUEST_PATH":"/command/execute"
       }
     },
     "build:prod": {
       "command": "npm-run-all build-css build-js",
       "env": {
-        "REACT_APP_SECRET_TYPE": "PROD"
+        "REACT_APP_SECRET_TYPE": "PROD",
+        "REACT_APP_PRODUCT_PROXY_PATH":"",
+        "REACT_APP_PRODUCT_REQUEST_PATH":"/command/execute"
       }
     }
   },
   "proxy": {
-    "/api": {
+    "/qa/api": {
       "target": "http://qa.m.8win.com",
       "changeOrigin": true,
       "pathRewrite": {
-        "^/api": ""
+        "^/qa/api": ""
+      },
+      "ws": true
+    },
+    "/dev/api": {
+      "target": "http://192.168.0.32:22040",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/dev/api": ""
       },
       "ws": true
     },

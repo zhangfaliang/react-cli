@@ -2,8 +2,8 @@ import { requestFetch } from './request';
 import { serializeQuery } from '../utils/commonFunction';
 import { isObject, isEmpty } from 'lodash';
 const REQUEST_PATH =
-  process.env.REACT_PRODUCT_REQUEST_PATH || '/command/execute';
-const PROXY_PATH = process.env.REACT_PRODUCT_PROXY_PATH || '/api';
+  process.env.REACT_APP_PRODUCT_REQUEST_PATH || '/command/execute';
+const PROXY_PATH = process.env.REACT_APP_PRODUCT_PROXY_PATH || '/dev/api';
 /**
  *
  *method: 请求使用的方法，如 GET、POST。
