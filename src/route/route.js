@@ -7,7 +7,7 @@ const Loading = () => 'loading';
 
 export default [
   {
-    component: TransComponent,
+    component: Root,
     routes: [
       {
         path: '/home',
