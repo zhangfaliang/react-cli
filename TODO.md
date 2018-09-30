@@ -1,0 +1,36 @@
+- [x] redux-saga
+- [x] selector
+- [x] connect server
+- [x] hot loading
+- [x] preCommit
+- [x] unit test
+- [x] dynamic import
+- [x] prettier
+- [x] react router
+- [x] .env
+- [ ] hoc
+- [ ] error handle
+- [x] 支持设置 dev/qa
+- [ ] 错误监控处理
+- [ ] font icon
+- [x] deploy
+- [x] adaptive
+- [ ] react-responsive-carousel
+- [ ] socket.io
+- [ ] polyfills
+- [ ] config prettier rule
+- [x] css 初始化设置(normalize.css)
+- [ ] Pre-Rendering into Static HTML Files
+- [ ] commit before test
+- [ ] Initializing Test Environment
+- [ ] Analyzing the Bundle Size
+- [ ] deployment
+- [ ] Moment.js locales are missing
+- [ ] Main Layout
+- [ ] Remove Demos
+- [x] Avoid using relative path imports
+- [x] How to get query parameters
+- [x] Redux DevTools
+- [x] CSS 命名问题
+- [x] source-map-explorer
+- [x] react-i18next

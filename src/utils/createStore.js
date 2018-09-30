@@ -1,28 +1,24 @@
-import React from 'react';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga';
+import { createStore, compose, applyMiddleware } from "redux"
+import createSagaMiddleware from "redux-saga"
+import { composeWithDevTools } from "redux-devtools-extension"
+import global from "../sagas"
+import { makeAllReducer } from "./getInjectAsync"
 
-import { makeAllReducer } from './getInjectAsync';
-import globalSaga from '../sagas/rootSaga';
-const sagaMiddleware = createSagaMiddleware();
-let composeFn = compose;
-const middlewares = [sagaMiddleware];
+const sagaMiddleware = createSagaMiddleware()
+const middleware = [sagaMiddleware]
+let composeFn = compose
 
-export default (initialState, initialRuducer) => {
-  if (process.env.NODE_ENV === 'development') {
-    composeFn = composeWithDevTools;
+export default (initialState, initialRedurce) => {
+  if (process.env.NODE_ENV === "development") {
+    composeFn = composeWithDevTools
   }
-
   const store = createStore(
-    makeAllReducer(initialRuducer),
+    makeAllReducer(initialRedurce),
     initialState,
-    composeFn(applyMiddleware(...middlewares))
-  );
-  store.runSaga = sagaMiddleware.run;
-  globalSaga.map(store.runSaga);
-  store.asyncReducers = {
-    ...initialRuducer
-  };
-  return store;
-};
+    composeFn(applyMiddleware(...middleware))
+  )
+  store.asyncReducers = { ...initialRedurce }
+  store.runsaga = sagaMiddleware.run
+  global.map(store.runsaga)
+  return store
+}

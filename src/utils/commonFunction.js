@@ -1,25 +1,25 @@
 export const serializeArray = (name, valueArr) => {
-  const newName = `${name}=`;
-  const res = [];
+  const newName = `${name}=`
+  const res = []
   for (let i = 0; i < valueArr.length; i++) {
-    if (valueArr[i] !== '') {
-      res.push(newName + encodeURIComponent(valueArr[i]));
+    if (valueArr[i] !== "") {
+      res.push(newName + encodeURIComponent(valueArr[i]))
     }
   }
-  return res.join('&');
-};
+  return res.join("&")
+}
 
 export const serializeQuery = param => {
-  const p = [];
+  const p = []
   Object.keys(param).forEach(k => {
-    const v = param[k];
-    if (v !== '') {
+    const v = param[k]
+    if (v !== "") {
       p.push(
         v instanceof Array
           ? serializeArray(k, v)
           : `${k}=${encodeURIComponent(v)}`
-      );
+      )
     }
-  });
-  return p.join('&');
-};
+  })
+  return p.join("&")
+}

@@ -1,98 +1,25 @@
 {
-  "name": "my-app",
+  "name": "just-for-fun",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "adaptive.js": "^0.0.2",
-    "better-npm-run": "^0.1.1",
-    "bootstrap": "3",
-    "connected-react-router": "^4.4.1",
-    "husky": "^0.14.3",
     "i18next": "^11.9.0",
     "i18next-browser-languagedetector": "^2.2.3",
-    "lint-staged": "^7.2.2",
-    "node-sass-chokidar": "^1.3.3",
     "normalize.css": "^8.0.0",
-    "npm-run-all": "^4.1.3",
-    "prettier": "^1.14.2",
     "react": "^16.4.2",
     "react-app-rewired": "^1.6.2",
-    "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
-    "react-helmet": "^5.2.0",
-    "react-hot-loader": "^4.3.5",
     "react-i18next": "^7.12.0",
-    "react-intl": "^2.4.0",
     "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
-    "react-router": "^4.3.1",
     "react-router-config": "^1.0.0-beta.4",
-    "react-router-dom": "4.3.1",
-    "react-scripts": "1.1.5",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
     "source-map-explorer": "^1.6.0"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
-  },
-  "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "precommit": "lint-staged",
-    "start-js": "react-scripts start",
-    "start": "better-npm-run start",
-    "start:dev": "npm-run-all -p watch-css start-js",
-    "qa": "better-npm-run qa",
-    "build-js": "react-scripts build",
-    "build:qa": "better-npm-run build:qa ",
-    "build:prod": "better-npm-run build:prod ",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "flow": "flow",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
-    "analyze": "source-map-explorer build/static/js/main.*",
-    "extract:messages": "react-intl-cra 'src/**/*.{js,jsx}' -o 'src/i18n/messages/messages.json'",
-    "manage:translations": "node ./translationRunner.js"
-  },
-  "betterScripts": {
-    "start": {
-      "command": "react-app-rewired   start",
-      "env": {
-        "REACT_APP_SECRET_TYPE": "DEV",
-        "REACT_APP_WEBSITE_NAME": "test title",
-        "REACT_APP_PRODUCT_PROXY_PATH": "/dev/api",
-        "REACT_APP_PRODUCT_REQUEST_PATH": "/command/execute"
-      }
-    },
-    "qa": {
-      "command": "react-app-rewired  start",
-      "env": {
-        "REACT_APP_SECRET_TYPE": "QA",
-        "REACT_APP_PRODUCT_PROXY_PATH": "/qa/api",
-        "REACT_APP_PRODUCT_REQUEST_PATH": "/command/execute"
-      }
-    },
-    "build:qa": {
-      "command": "react-app-rewired build",
-      "env": {
-        "REACT_APP_SECRET_TYPE": "QA",
-        "REACT_APP_PRODUCT_PROXY_PATH": "",
-        "REACT_APP_PRODUCT_REQUEST_PATH": "/command/execute"
-      }
-    },
-    "build:prod": {
-      "command": "react-app-rewired   build",
-      "env": {
-        "REACT_APP_SECRET_TYPE": "PROD",
-        "REACT_APP_PRODUCT_PROXY_PATH": "",
-        "REACT_APP_PRODUCT_REQUEST_PATH": "/command/execute"
-      }
-    }
   },
   "proxy": {
     "/qa/api": {
@@ -110,37 +37,33 @@
         "^/dev/api": ""
       },
       "ws": true
-    },
-    "/foo": {
-      "target": "<url_2>",
-      "ssl": true,
-      "pathRewrite": {
-        "^/foo": "/foo/beta"
-      }
-    },
-    "/bar/[^/]*[.]html": {
-      "target": "<url_3>"
-    },
-    "/baz/.*/.*[.]html": {
-      "target": "<url_4>"
     }
   },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --no-semi --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start:dev": "REACT_APP_ENVIRONMENT=ZY_DEV react-app-rewired start",
+    "start:qa": "REACT_APP_ENVIRONMENT=ZY_QA react-app-rewired start",
+    "build:dev": "REACT_APP_ENVIRONMENT=ZY_DEV react-app-rewired build",
+    "build:qa": "REACT_APP_ENVIRONMENT=ZY_QA react-app-rewired build",
+    "build:prod": "REACT_APP_ENVIRONMENT=ZY_PROD react-app-rewired build",
+    "test": "react-app-rewired test",
+    "test:staged": "CI=true react-app-rewired test",
+    "precommit": "lint-staged && npm run test:staged",
+    "eject": "react-app-rewired eject",
+    "analyze": "react-app-rewired build && source-map-explorer build/static/js/main.*"
+  },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.10",
-    "@storybook/addon-links": "^3.4.10",
-    "@storybook/addons": "^3.4.10",
-    "@storybook/cli": "^3.4.10",
-    "@storybook/react": "^3.4.10",
-    "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0",
-    "firebase-tools": "^4.2.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
     "node-sass": "^4.9.3",
-    "react-addons-test-utils": "^15.6.2",
+    "prettier": "^1.14.2",
     "react-app-rewire-css-modules": "codebandits/react-app-rewire-css-modules",
-    "react-intl-cra": "^0.3.3",
-    "react-intl-translations-manager": "^5.0.3",
     "redux-devtools-extension": "^2.13.5",
-    "sass-loader": "^7.1.0",
-    "serve": "^10.0.0"
+    "sass-loader": "^7.1.0"
   }
 }
