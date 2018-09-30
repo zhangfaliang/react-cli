@@ -1,0 +1,154 @@
+@defaultWidth: 120px;
+@defaultHeight: 144px;
+@detailMediumWidth: 335px;
+@detailDefaultHeight: 80px;
+@detailSmallWidth: 237px;
+@detailLargeWidth: 100%;
+@pushSmallWidth:192px;
+@pushLargeWidth:289px;
+@changSPWidth: 21px;
+@changSPHeight: 21px;
+@defaultBackgroundColor: #F6F8FF;
+@activeBackgroundColor: #00A7FE;
+.defaultChangSp {
+  width: @changSPWidth;
+  height: @changSPHeight;
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.default-bet-button {
+  height: @defaultHeight;
+  width: @defaultWidth;
+  background-color: @defaultBackgroundColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  position: relative;
+  font-family: Akrobat-Bold;
+
+  disabled {
+    background-color: #ECECEC;
+  }
+  .none {
+    display: none
+  }
+  .up:extend(.defaultChangSp) {
+    background: forestgreen;
+    top: 11px;
+  }
+  .down:extend(.defaultChangSp) {
+    background: red;
+    bottom: 11px;
+  }
+
+  .wrapOptionName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      font-size: 28px;
+      color: #214365;
+    }
+  }
+  .wrapSp {
+    .sp {
+      font-size: 32px;
+      color: #080F1E;
+    }
+  }
+  .lock {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    background: goldenrod;
+  }
+  .flickerSp {
+    animation: flicker 5s ease-out forwards;
+  }
+}
+
+
+.detail-medium-bet-button {
+  &:extend(.default-bet-button all);
+  height:@detailDefaultHeight;
+  width: @detailMediumWidth;
+  background-color: @defaultBackgroundColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+.detail-small-bet-button {
+  &:extend(.detail-medium-bet-button all);
+  width: @detailSmallWidth;
+  
+}
+
+.detail-large-bet-button {
+  &:extend(.detail-medium-bet-button all);
+  width: @detailLargeWidth;
+}
+.push-large-bet-button {
+  &:extend(.detail-medium-bet-button all);
+  width: @pushLargeWidth;
+}
+.push-small-bet-button {
+  &:extend(.detail-medium-bet-button all);
+  width: @pushSmallWidth;
+}
+.active {
+  background-color: @activeBackgroundColor;
+  .wrapSp {
+    .sp {
+      color:#fff;
+    }
+  }
+  .wrapOptionName{
+    span {
+      color: #E3E6FF;
+    }
+  }
+}
+// &:extend(.inline);
