@@ -5,8 +5,8 @@ import styles from "./index.less"
 class BetButtonCell extends Component {
   static COMPONENT_NAME = "BETBUTTONCELL"
   render() {
-    const { children, perfixCls } = this.props
-    const classNameStr = `${perfixCls || "push"}-betButtonCell`
+    const { children, prefixCls } = this.props
+    const classNameStr = `${prefixCls || "push-inplay"}-betButtonCell`
     const childrens = React.Children.map(children, option => {
       const { clickBetBtn, changeSp, changeHandicap, ...other } = option.props
       if (option.type.COMPONENT_NAME === "BETBUTTON") {

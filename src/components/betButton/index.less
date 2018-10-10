@@ -4,18 +4,20 @@
 @detailDefaultHeight: 80px;
 @detailSmallWidth: 237px;
 @detailLargeWidth: 100%;
-@pushSmallWidth:192px;
-@pushLargeWidth:289px;
+@pushSmallWidth: 192px;
+@pushLargeWidth: 289px;
 @changSPWidth: 21px;
 @changSPHeight: 21px;
 @defaultBackgroundColor: #F6F8FF;
 @activeBackgroundColor: #00A7FE;
-.defaultChangSp {
+.default_chang_sp {
   width: @changSPWidth;
   height: @changSPHeight;
   position: absolute;
   right: 10px;
   opacity: 0;
+  box-sizing: border-box;
+
 }
 
 @-webkit-keyframes flicker {
@@ -64,22 +66,27 @@
   flex-flow: column nowrap;
   position: relative;
   font-family: Akrobat-Bold;
-
+  border-left: 1px solid #D7DAE0;
   disabled {
     background-color: #ECECEC;
   }
   .none {
     display: none
   }
-  .up:extend(.defaultChangSp) {
-    background: forestgreen;
-    top: 11px;
+  .up:extend(.default_chang_sp) {
+    top: 25px;
+    >span:before{
+      font-size: 20px;
+      color: forestgreen;
+    }
   }
-  .down:extend(.defaultChangSp) {
-    background: red;
-    bottom: 11px;
+  .down:extend(.default_chang_sp) {
+    bottom: 25px;
+    >span:before{
+      color: red;
+      font-size: 20px;
+    }
   }
-
   .wrapOptionName {
     display: flex;
     justify-content: center;
@@ -96,20 +103,23 @@
     }
   }
   .lock {
-    display: inline-block;
+    display: flex;
+    justify-content:center;
+    align-items: center;
     height: 44px;
     width: 44px;
-    background: goldenrod;
+    >span:before{
+      color:#666
+    }
   }
   .flickerSp {
     animation: flicker 5s ease-out forwards;
   }
 }
 
-
 .detail-medium-bet-button {
   &:extend(.default-bet-button all);
-  height:@detailDefaultHeight;
+  height: @detailDefaultHeight;
   width: @detailMediumWidth;
   background-color: @defaultBackgroundColor;
   display: flex;
@@ -120,35 +130,39 @@
   box-sizing: border-box;
   padding: 0 40px;
 }
+
 .detail-small-bet-button {
   &:extend(.detail-medium-bet-button all);
   width: @detailSmallWidth;
-  
 }
 
 .detail-large-bet-button {
   &:extend(.detail-medium-bet-button all);
   width: @detailLargeWidth;
 }
+
 .push-large-bet-button {
   &:extend(.detail-medium-bet-button all);
   width: @pushLargeWidth;
 }
+
 .push-small-bet-button {
   &:extend(.detail-medium-bet-button all);
   width: @pushSmallWidth;
 }
+
 .active {
   background-color: @activeBackgroundColor;
   .wrapSp {
     .sp {
-      color:#fff;
+      color: #fff;
     }
   }
-  .wrapOptionName{
+  .wrapOptionName {
     span {
       color: #E3E6FF;
     }
   }
 }
+
 // &:extend(.inline);

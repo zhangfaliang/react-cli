@@ -1,0 +1,95 @@
+@defaultHeigth: 80px;
+.default-lable {
+  height: @defaultHeigth;
+  background: #162D49;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28px;
+  color: #8FB8DF;
+  &.showTBBorder {
+    border-bottom: 1px solid #284971;
+    border-top: 1px solid #284971;
+  }
+}
+
+.default-left-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  .gameTypeImg {
+    display: flex;
+    height: 44px;
+    width: 44px;
+    margin-left: 20px;
+    resize-mode:contain;
+
+  }
+  .titleText {
+    margin-left: 20px;
+  }
+}
+
+.live-inplay-left-title {
+  &:extend(.default-left-title all);
+  .titleText {
+    height: 28px;
+    width: 207px;
+    background-image: url('../../assets/game/index/inplay-label-bg.png');
+    background-size: cover;
+  }
+}
+
+.default-right-table {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 80px;
+  }
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 44px;
+    margin-left: 20px;
+    >span::before {
+      color: #FFFFFF;
+    }
+  }
+}
+
+.live-inplay-right-table {
+  &:extend(.default-right-table all);
+  .rightText {
+    font-size: 28px;
+    color: #FFFFFF;
+  }
+  .icon {
+    margin-left: 0px;
+  }
+}
+
+.push-before-lable {
+  &:extend(.default-left-title all);
+  font-size: 28px;
+  color: #214365;
+  height: 72px;
+}
+
+.other-match-lable {
+  &:extend(.default-lable all);
+  padding-right: 5px;
+  font-size: 28px;
+  color: #214365;
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 20px;
+}

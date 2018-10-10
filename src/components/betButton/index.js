@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import classnames from "classnames"
+import IconFont from "../iconFont"
 import styles from "./index.less"
 class BetButton extends Component {
   static COMPONENT_NAME = "BETBUTTON"
@@ -8,7 +9,7 @@ class BetButton extends Component {
     this.upNode = React.createRef()
     this.downNode = React.createRef()
     this.state = {
-      activeFlag: props.active || false
+      activeFlag: props.active
     }
   }
 
@@ -29,10 +30,8 @@ class BetButton extends Component {
     if (prevProp.sp !== this.props.sp) changeSp()
     if (prevProp.handicap !== this.props.handicap) changeHandicap()
     if (prevProp.active !== this.props.active) {
-      this.setState(() => {
-        return {
-          activeFlag: this.props.activ
-        }
+      this.setState({
+        activeFlag: this.props.active
       })
     }
     if (this.props.sp > prevProp.sp) {
@@ -60,19 +59,13 @@ class BetButton extends Component {
   handleBetBtn = event => {
     event.preventDefault()
     const { clickBetBtn, letNum, handicap, sp, optionId, disabled } = this.props
-    this.setState(
-      () => {
-        return {
-          activeFlag: !this.state.activeFlag
-        }
-      },
-      () => {
+    !disabled &&
+      this.setState({ activeFlag: !this.state.activeFlag }, () => {
         this.state.activeFlag &&
           !disabled &&
           clickBetBtn &&
           clickBetBtn({ optionId, sp, handicap, letNum })
-      }
-    )
+      })
   }
 
   render() {
@@ -86,8 +79,12 @@ class BetButton extends Component {
 
     return (
       <div className={betBtnCls} onClick={this.handleBetBtn}>
-        <span ref={this.upNode} className={styles.up} />
-        <span ref={this.downNode} className={styles.down} />
+        <span ref={this.upNode} className={styles.up}>
+          <IconFont type="sheng" />
+        </span>
+        <span ref={this.downNode} className={styles.down}>
+          <IconFont type="jiang" />
+        </span>
         {optionName && (
           <div className={styles.wrapOptionName}>
             <span className={styles.optionName}>{optionName}</span>
@@ -95,7 +92,10 @@ class BetButton extends Component {
         )}
         <div className={styles.wrapSp}>
           {disabled ? (
-            <span className={styles.lock} />
+            <span className={styles.lock}>
+              {" "}
+              <IconFont type="lock" />
+            </span>
           ) : (
             <span className={styles.sp}>{sp}</span>
           )}

@@ -1,6 +1,9 @@
 @pushHeight: 144px;
-.push-betButtonCell {
-  height: @pushHeight;
+.push-inplay-betButtonCell {
   display: flex;
+  height: @pushHeight;
   justify-content: flex-end;
+}
+.push-before-betButtonCell {
+  &:extend(.push-inplay-betButtonCell all);
 }

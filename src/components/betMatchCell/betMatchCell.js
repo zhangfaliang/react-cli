@@ -3,11 +3,13 @@ import styles from "./index.less"
 import BetMatchInfo from "../betMatchInfo"
 import BetButtonCell from "../betButtonCell"
 import ProgressText from "./progressText"
-
+import { Label } from "../label"
+import { spawn } from "redux-saga/effects"
 class BetMatchCell extends Component {
+  static COMPONENT_NAME = "BETMATCHCELL"
   render() {
     const { children, prefixCls } = this.props
-    const classNameStr = `${prefixCls || "push"}-in-play-bet-cell`
+    const classNameStr = `${prefixCls || "push-inplay"}-bet-cell`
     const childrens = React.Children.map(children, option => {
       const { clickBetBtn, changeSp, changeHandicap, ...other } = option.props
 

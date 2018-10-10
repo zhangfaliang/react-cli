@@ -1,27 +1,39 @@
-.push-in-play-bet-cell {
+.push-inplay-bet-cell {
+  width: 710px;
   height: 144px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #FFFFFF;
+  margin-bottom: 20px;
   border-radius: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+  .progress {
+    height: 144px;
+    width: 42%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    .text {
+      font-size: 28px;
+      color: #214365;
+    }
+    .stringInTime {
+      font-size: 32px;
+      color: #E62300;
+      margin-left: 12px
+    }
+  }
 }
 
-.progress {
-  height: 144px;
-  width: 40%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 20px;
-  .text {
-    font-size: 28px;
-    color: #214365;
-  }
-  .stringInTime {
-    font-size: 32px;
-    color: #E62300;
-    margin-left: 12px
-  }
+.push-before-bet-cell {
+  &:extend(.push-inplay-bet-cell all);
+  width: 100%;
+  border-top: 1px solid #D7DAE0;
+  margin-bottom: 0;
+  height: 146px;
+  box-sizing: border-box;
+  border-radius: 0px;
 }
