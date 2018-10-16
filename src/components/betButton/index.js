@@ -9,7 +9,7 @@ class BetButton extends Component {
     this.upNode = React.createRef()
     this.downNode = React.createRef()
     this.state = {
-      activeFlag: props.active
+      activeFlag: props.defaultActive
     }
   }
 
@@ -17,59 +17,61 @@ class BetButton extends Component {
     setTimeout(callBack, timeout)
   }
 
-  flickerSp = ({ node, newClassName, oldClassName }) => {
+  flickerSp = ({ node, newClassName }) => {
     node.className = newClassName
   }
 
-  getSnapshotBeforeUpdate = (prevProp, prevState, snapshot) => {
-    const { changeSp, changeHandicap } = this.props
+  componentDidUpdate = (prevProp, prevState) => {
+    const {
+      changeSp,
+      changeHandicap,
+      optionId,
+      sp,
+      handicap,
+      optionName
+    } = this.props
     const { up, down, flickerSp } = styles
 
     this.downNode.current.className = up
     this.upNode.current.className = down
-    if (prevProp.sp !== this.props.sp) changeSp()
-    if (prevProp.handicap !== this.props.handicap) changeHandicap()
-    if (prevProp.active !== this.props.active) {
-      this.setState({
-        activeFlag: this.props.active
-      })
-    }
+    if (prevProp.sp !== this.props.sp)
+      changeSp({ optionId, sp, handicap, optionName })
+    if (prevProp.handicap !== this.props.handicap)
+      changeHandicap({ optionId, sp, handicap, optionName })
     if (this.props.sp > prevProp.sp) {
       this.flickerSp({
         node: this.upNode.current,
-        newClassName: `${up} ${flickerSp}`,
-        oldClassName: up
+        newClassName: `${up} ${flickerSp}`
       })
     } else if (this.props.sp < prevProp.sp) {
       // 下降
       this.flickerSp({
         node: this.downNode.current,
-        newClassName: `${down} ${flickerSp}`,
-        oldClassName: down
+        newClassName: `${down} ${flickerSp}`
       })
     }
-
-    return true
-  }
-
-  componentDidUpdate = (prevProp, prevState, snapshot) => {
-    return snapshot
   }
 
   handleBetBtn = event => {
     event.preventDefault()
-    const { clickBetBtn, letNum, handicap, sp, optionId, disabled } = this.props
+    const target = event.target
+    const {
+      clickBetBtn,
+      handicap,
+      sp,
+      optionId,
+      disabled,
+      optionName
+    } = this.props
     !disabled &&
       this.setState({ activeFlag: !this.state.activeFlag }, () => {
         this.state.activeFlag &&
-          !disabled &&
-          clickBetBtn &&
-          clickBetBtn({ optionId, sp, handicap, letNum })
+          clickBetBtn({ optionId, sp, handicap, optionName, target: target })
       })
   }
 
   render() {
-    const { letNum, sp, prefixCls, disabled, active, optionName } = this.props
+    const { sp, prefixCls, disabled, optionName } = this.props
     const betBtnClsStr = `${prefixCls || "default"}-bet-button`
     const betBtnCls = classnames({
       [styles[betBtnClsStr]]: true,
@@ -107,8 +109,8 @@ class BetButton extends Component {
 BetButton.defaultProps = {
   prefixCls: "default", // css 前缀  目前 default detail medium small large
   disabled: false,
-  optionId: "sdf",
-  active: "",
+  optionId: "w",
+  defaultActive: false,
   handicap: "4.5",
   sp: 1.2,
   optionName: "4.5",

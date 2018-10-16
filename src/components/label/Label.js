@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import LeftTitle from "./LeftTitle"
-import RightTable from "./RightTable"
+import LabelRight from "./LabelRight"
+import LabelCenter from "./LabelCenter"
 import styles from "./index.less"
 import classnames from "classnames"
 class Label extends Component {
@@ -29,8 +30,12 @@ class Label extends Component {
             clickLeftTitleText={this.props.clickLeftTitleText}
           />
         )
-      } else if (option.type.COMPONENT_NAME === "RIGHTTABLE") {
-        return <RightTable {...ther} />
+      } else if (option.type.COMPONENT_NAME === "LABLEDCENTER") {
+        return <LabelCenter {...ther} />
+      } else if (option.type.COMPONENT_NAME === "LABELRIGHT") {
+        return (
+          <LabelRight {...ther} handleRightIcon={this.props.handleRightIcon} />
+        )
       }
     })
 
@@ -54,6 +59,9 @@ Label.defaultProps = {
   showTBBorder: false,
   clickTitleText: params => {
     console.log("clickTitleText")
+  },
+  handleRightIcon: () => {
+    console.log("handleRightIcon")
   },
   labelType: "电竞"
 }

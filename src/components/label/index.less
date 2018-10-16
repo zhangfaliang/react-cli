@@ -1,16 +1,19 @@
+@import '../../theme/index.less';
 @defaultHeigth: 80px;
 .default-lable {
   height: @defaultHeigth;
-  background: #162D49;
+  background: @match-group-bg;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   font-size: 28px;
-  color: #8FB8DF;
+  color: @aide-color-secondary;
+  padding-left: @h-p-20;
+  box-sizing: border-box;
   &.showTBBorder {
-    border-bottom: 1px solid #284971;
-    border-top: 1px solid #284971;
+    border-bottom: 1px solid @tab-bar-border-color;
+    border-top: 1px solid @tab-bar-border-color;
   }
 }
 
@@ -23,12 +26,8 @@
     display: flex;
     height: 44px;
     width: 44px;
-    margin-left: 20px;
-    resize-mode:contain;
-
-  }
-  .titleText {
-    margin-left: 20px;
+    resize-mode: contain;
+    margin-right: 20px;
   }
 }
 
@@ -64,6 +63,11 @@
       color: #FFFFFF;
     }
   }
+  .activeIcon{
+    >span::before {
+      color: #FFE011;
+    }
+  }
 }
 
 .live-inplay-right-table {
@@ -80,7 +84,7 @@
 .push-before-lable {
   &:extend(.default-left-title all);
   font-size: 28px;
-  color: #214365;
+  color: @remark-font-color;
   height: 72px;
 }
 
@@ -88,8 +92,30 @@
   &:extend(.default-lable all);
   padding-right: 5px;
   font-size: 28px;
-  color: #214365;
+  color: @remark-font-color;
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 20px;
+}
+
+.default-label-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #FFFFFF;
+}
+.match-detail-lable{
+  &:extend(.default-lable all);
+  padding: 0 13px 0 17px;
+  color: #FFFFFF;
+}
+.match-detail-left-title {
+  &:extend(.default-left-title all);
+  flex:none;
+}
+
+.match-detail-right-table{
+  &:extend(.default-right-table all);
+ 
 }

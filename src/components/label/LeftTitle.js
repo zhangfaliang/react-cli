@@ -7,7 +7,7 @@ import { DEFAULT_ENCODING } from "crypto"
 class leftTitle extends Component {
   static COMPONENT_NAME = "LEFTNODE"
   handeClickTitleText = e => {
-    e.preventDefault()
+    e.stopPropagation()
     const { leftText, clickLeftTitleText, type } = this.props
     clickLeftTitleText && clickLeftTitleText({ type, leftText })
   }
@@ -18,13 +18,14 @@ class leftTitle extends Component {
       gameType,
       prefixCls,
       clickTitle,
-      gameTypeImgUrl
+      gameTypeImgUrl,
+      gameTypeImgShow
     } = this.props
     const clsNameStr = `${prefixCls || "default"}-left-title`
 
     return (
       <div onClick={this.handeClickTitleText} className={styles[clsNameStr]}>
-        {gameTypeImgUrl && (
+        {gameTypeImgShow && (
           <img className={styles.gameTypeImg} src={gameTypeImgUrl} alt="" />
         )}
         <span className={styles.titleText}>{leftText}</span>
@@ -37,6 +38,7 @@ leftTitle.defaultProps = {
   clickLeftTitleText: params => {
     console.log(params)
   },
+  gameTypeImgShow: true,
   leftText: "",
   gameTypeImgUrl: "https://avatars3.githubusercontent.com/u/17559536?s=40&v=4"
 }

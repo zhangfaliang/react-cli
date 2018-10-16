@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Link from "umi/link"
+import BackTop from "../backTop"
 import styles from "./index.less"
 
 class Footer extends Component {
@@ -46,6 +47,7 @@ class Footer extends Component {
             )
           })}
         </div>
+        <BackTop />
       </footer>
     )
   }

@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./index.less"
-import LOADING_IMG from "@/assets/loading.gif"
+import LOADING_IMG from "../../assets/loading.gif"
 
 export const Loading = () => (
   <div className={styles["loading-wrapper"]}>

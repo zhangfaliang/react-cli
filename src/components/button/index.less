@@ -1,17 +1,72 @@
+@import '../../theme/index.less';
 .check-all-button {
+
+  &:hover,
+  &:active,
+  &:visited,
+  &:link,
+  &:focus {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    text-decoration: none;
+  }
   height: 80px;
   width: 710px;
-  background: #00A7FE;
+  background:@primary-secondary-color;
   border-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 32px;
-  color: #FFFFFF;
+  color: @primary-btn-color;
   letter-spacing: 0.38px;
   margin: 20px 0;
-
   &.active{
-    background: #0084DB;
+    background: @primary-active-color;
   }
+
+  &.disabled {
+    color: @disabled-color;
+    background: @bet-disabled-bg;
+    pointer-events: none;
+  }
+
+
+
 }
+
+.all-in-button {
+  &:extend(.check-all-button all);
+  border-radius: 0;
+  color:@primary-font-color;
+  height: 100px;
+  width: 120px;
+  border-left: 1px solid @bet-border-color;
+  background: @bet-btn-bg-default-color;
+  margin:0; 
+  &.active{
+    background: @bet-btn-bg-default-color;
+    border-left: 1px solid #FFFFFF;
+  }
+  &:active {
+    background:@primary-secondary-color;
+  }
+
+}
+
+.bet-button {
+  &:extend(.all-in-button all);
+  background: @primary-secondary-color;
+  color: #FFFFFF;
+  width: 220px;
+  &.active{
+    background: @primary-secondary-color;
+    border-left: 1px solid #FFFFFF;
+  }
+  &:active {
+    background:  #0084DB;
+  }
+
+}
+

@@ -11,15 +11,27 @@ class GamePlayModule extends Component {
       isOpen: this.props.isOpen
     }
   }
-  getSnapshotBeforeUpdate(prevProps, prevState, snapsho) {
-    if (prevProps.isOpen !== this.props.isOpen) {
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.isOpen !== this.props.isOpen) {
       this.setState({
-        isOpen: this.props.isOpen
+        isOpen: nextProps.isOpen
       })
+    }
+    return true
+  }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    if (this.state.isOpen) {
+      return "hidden"
     }
     return null
   }
-  componentDidUpdate = (prevProp, prevState, snapshot) => {}
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (snapshot === "hidden") {
+      document.body.style.overflow = snapshot
+    } else {
+      document.body.style.overflow = "auto"
+    }
+  }
   handleLayer = e => {
     const { maskClosable, handleLayer } = this.props
     maskClosable &&
@@ -46,7 +58,7 @@ class GamePlayModule extends Component {
     )
   }
   render() {
-    const { prefixCls, children } = this.props
+    const { prefixCls, children, offsetTop } = this.props
     const { isOpen } = this.state
     const claName = classnames({
       [styles[`${prefixCls || "default"}-game-play-module`]]: true,
@@ -61,7 +73,11 @@ class GamePlayModule extends Component {
     })
 
     return (
-      <div className={claName} onClick={this.handleLayer}>
+      <div
+        className={claName}
+        style={{ top: `${offsetTop}px` }}
+        onClick={this.handleLayer}
+      >
         {isOpen && childrens}
       </div>
     )

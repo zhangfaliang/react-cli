@@ -1,7 +1,7 @@
 import React from "react"
 import Modal from "react-modal"
-import styles from "./index.css"
-import CLOSE from "@/assets/close.png"
+import styles from "./index.less"
+import CLOSE from "../../assets/close.png"
 
 const customStyles = {
   content: {
@@ -28,26 +28,28 @@ const customStyles = {
 }
 
 export class FeedbackModal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: !!props.isOpen }
+  }
+
+  openOrCloseModal = () =>
+    this.setState(preState => ({ isOpen: !preState.isOpen }))
+
   render() {
-    const {
-      isOpen,
-      closeModal,
-      logo,
-      footerText,
-      onClick,
-      showCloseIcon,
-      texts
-    } = this.props
+    const { logo, footerText, showCloseIcon, texts } = this.props
 
     return (
       <Modal
-        isOpen={isOpen}
+        isOpen={this.state.isOpen}
         ariaHideApp={false}
-        onRequestClose={closeModal}
+        onRequestClose={this.openOrCloseModal}
         style={customStyles}
       >
         <div className={styles["modal-header"]}>
-          {showCloseIcon && <img src={CLOSE} alt="" onClick={closeModal} />}
+          {showCloseIcon && (
+            <img src={CLOSE} alt="" onClick={this.openOrCloseModal} />
+          )}
         </div>
         <div className={styles["modal-logo"]}>
           <img src={logo} alt="" />
@@ -58,7 +60,7 @@ export class FeedbackModal extends React.Component {
             <div key={x}>{x}</div>
           ))}
         </div>
-        <div className={styles["modal-footer"]} onClick={onClick}>
+        <div className={styles["modal-footer"]} onClick={this.openOrCloseModal}>
           {footerText}
         </div>
       </Modal>

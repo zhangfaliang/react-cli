@@ -1,20 +1,25 @@
 import React, { Component } from "react"
+import styles from "./index.less"
 import Card from "./card"
 
 class LabelCard extends Component {
   static Card = Card
   static defaultProps = {
-    onClick: () => {}
+    label: "Label"
   }
 
   render() {
-    const children = this.props.children.length
-      ? this.props.children
-      : [this.props.children]
+    const { label } = this.props
+    const children = React.Children.toArray(this.props.children)
     return (
-      <div>
+      <div className={styles.wrap}>
+        <div className={styles.label}>{label}</div>
         {children.map((v, k) => {
-          return <div key={k}>{v}</div>
+          return (
+            <div className={styles.body} key={k}>
+              {v}
+            </div>
+          )
         })}
       </div>
     )

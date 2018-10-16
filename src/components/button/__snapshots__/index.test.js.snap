@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button组件 basic use 1`] = `
+<span
+  class="default-button"
+>
+  Check all In-Play
+</span>
+`;
+
+exports[`Button组件 withPropsActive 1`] = `
+<span
+  class="check-all-button"
+>
+  Check all In-Play
+</span>
+`;
+
+exports[`Button组件 withPropsBtnText 1`] = `
+<span
+  class="check-all-button"
+>
+  btnText
+</span>
+`;
+
+exports[`Button组件 withPropsClickCheckBtn 1`] = `
+<span
+  class="check-all-button"
+>
+  Check all In-Play
+</span>
+`;
+
+exports[`Button组件 withPropsDefaultActive 1`] = `
+<span
+  class="check-all-button active"
+>
+  Check all In-Play
+</span>
+`;
+
+exports[`Button组件 withPropsPrefixCls 1`] = `
+<span
+  class="prefixCls-button"
+>
+  Check all In-Play
+</span>
+`;
+
+exports[`Button组件 withPropsPrefixClsNull 1`] = `
+<span
+  class="default-button"
+>
+  Check all In-Play
+</span>
+`;

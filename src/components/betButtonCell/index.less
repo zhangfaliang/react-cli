@@ -1,3 +1,5 @@
+@import '../../theme/index.less';
+
 @pushHeight: 144px;
 .push-inplay-betButtonCell {
   display: flex;
@@ -7,3 +9,10 @@
 .push-before-betButtonCell {
   &:extend(.push-inplay-betButtonCell all);
 }
+.detail-betButtonCell {
+  &:extend(.push-inplay-betButtonCell all);
+  height: auto;
+  width: 100%;
+  flex-flow: row wrap;
+}
+

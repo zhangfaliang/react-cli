@@ -5,8 +5,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: #162D49; //@aide-color;
+  background: @aide-color;
   box-sizing: border-box;
+  padding-left: @h-p-20;
+
+}
+
+.inplay-match-list-title {
+  &:extend(.default-match-list-title all);
+  justify-content: space-between;
 }
 
 .default-live-num {
@@ -88,7 +95,6 @@
   background: @primary-color;
   box-sizing: border-box;
   box-sizing: border-box;
-
   .item {
     display: flex;
     justify-content: center;
@@ -105,8 +111,8 @@
     align-items: center;
     width: 100%;
     font-size: 24px;
-    color: #8FB8DF;
+    color: @aide-color-secondary;
     letter-spacing: 0.29px;
-    padding: 0  0 14px 20px;
+    padding: 0 0 14px 20px;
   }
 }

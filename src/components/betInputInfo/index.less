@@ -1,0 +1,110 @@
+@import '../../theme/index.less';
+.default-bet-module {
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  flex-flow: nowrap column;
+  position: fixed;
+  height: 0;
+  width: 100%;
+  z-index: @zindex-tooltip;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.60);
+  transition: height .3s ease-in-out;
+  &.isShowBetModule {
+    height: 100%;
+    display: flex;
+  }
+}
+
+.default-betinfor {
+  height: 157px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 14px 20px 17px 14px;
+  box-sizing: border-box;
+  font-family: Akrobat-Regular;
+  background: @primary-color;
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: nowrap column;
+    font-size: 28px;
+    color: #FFFFFF;
+    letter-spacing: 0.34px;
+    .optionName {
+      display: flex;
+      font-size: 32px;
+      letter-spacing: 0.38px;
+      width: 100%;
+    }
+    .gamePlayName {
+      display: flex;
+      font-size: 28px;
+      width: 100%;
+    }
+    .gameAgainst {
+      width: 100%;
+      display: flex;
+      color: @aide-color-secondary;
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >span::before {
+      color: @aide-color-secondary;
+    }
+  }
+}
+
+.default-input {
+  //width: 750px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .inputWrap {
+    display: flex;
+    flex-flow: nowrap column;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background: #FFFFFF;
+    padding: 0 @h-p-20 ;
+    box-sizing: border-box;
+    .input {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 40px;
+      color: @primary-font-color;
+      letter-spacing: 0.48px;
+      .amountDisabled {
+        color: @disabled-color;
+      }
+      .amountSuffix {
+        margin-left: 8px;
+        font-size: 24px;
+        letter-spacing: 0.29px;
+      }
+    }
+  }
+  .possibleWinWrap {
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: @remark-font-color;
+    width: 100%;
+  }
+}

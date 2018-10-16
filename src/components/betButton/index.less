@@ -1,15 +1,15 @@
+@import '../../theme/index.less';
+
 @defaultWidth: 120px;
 @defaultHeight: 144px;
-@detailMediumWidth: 335px;
+@detailMediumWidth: 354px;
 @detailDefaultHeight: 80px;
-@detailSmallWidth: 237px;
-@detailLargeWidth: 100%;
+@detailSmallWidth: 236px;
+@detailLargeWidth: 709px;
 @pushSmallWidth: 192px;
 @pushLargeWidth: 289px;
 @changSPWidth: 21px;
 @changSPHeight: 21px;
-@defaultBackgroundColor: #F6F8FF;
-@activeBackgroundColor: #00A7FE;
 .default_chang_sp {
   width: @changSPWidth;
   height: @changSPHeight;
@@ -59,16 +59,25 @@
 .default-bet-button {
   height: @defaultHeight;
   width: @defaultWidth;
-  background-color: @defaultBackgroundColor;
+  background-color: @bet-btn-bg-default-color;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
   position: relative;
   font-family: Akrobat-Bold;
-  border-left: 1px solid #D7DAE0;
-  disabled {
-    background-color: #ECECEC;
+  border-left: 1px solid @bet-border-color;
+  &:before{
+    content: '';
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    z-index: 10;
+  }
+  .disabled {
+    background-color: @bet-disabled-bg; 
   }
   .none {
     display: none
@@ -77,13 +86,13 @@
     top: 25px;
     >span:before{
       font-size: 20px;
-      color: forestgreen;
+      color:@up-sp-color;
     }
   }
   .down:extend(.default_chang_sp) {
     bottom: 25px;
     >span:before{
-      color: red;
+      color: @down-sp-color;
       font-size: 20px;
     }
   }
@@ -93,13 +102,13 @@
     align-items: center;
     span {
       font-size: 28px;
-      color: #214365;
+      color: @bet-option-name-color;
     }
   }
   .wrapSp {
     .sp {
       font-size: 32px;
-      color: #080F1E;
+      color:@bet-sp-color;
     }
   }
   .lock {
@@ -109,7 +118,7 @@
     height: 44px;
     width: 44px;
     >span:before{
-      color:#666
+      color:@bet-lock-color;
     }
   }
   .flickerSp {
@@ -121,13 +130,14 @@
   &:extend(.default-bet-button all);
   height: @detailDefaultHeight;
   width: @detailMediumWidth;
-  background-color: @defaultBackgroundColor;
+  background-color: @bet-btn-bg-default-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-flow: row nowrap;
   position: relative;
   box-sizing: border-box;
+  border-top: 1px solid @bet-border-color;
   padding: 0 40px;
 }
 
@@ -152,15 +162,15 @@
 }
 
 .active {
-  background-color: @activeBackgroundColor;
+  background-color: @bet-btn-active-bg-default-color;
   .wrapSp {
     .sp {
-      color: #fff;
+      color:@bet-sp-active-color ;
     }
   }
   .wrapOptionName {
     span {
-      color: #E3E6FF;
+      color: @bet-option-name-active-color;
     }
   }
 }

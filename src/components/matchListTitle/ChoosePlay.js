@@ -8,20 +8,18 @@ class ChoosePlay extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeFlag: this.props.defaultActive
+      activeFlag: props.defaultActive
     }
   }
-  getSnapshotBeforeUpdate(prevProps, prevState, snapsho) {
-    if (prevProps.active !== this.props.active) {
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.active !== this.props.active) {
       this.setState({
-        activeFlag: this.props.active
+        activeFlag: nextProps.active
       })
     }
-    return null
+    return true
   }
-  componentDidUpdate = (prevProp, prevState, snapshot) => {
-    return snapshot
-  }
+
   handleChoose = e => {
     e.preventDefault()
     const { handleChoose } = this.props

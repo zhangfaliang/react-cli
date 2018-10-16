@@ -41,9 +41,7 @@ class OrderFilter extends Component {
   render() {
     const { onChange } = this.props
     const { defaultActiveTab, hideTab, defaultActiveKey } = this.state
-    const children = this.props.children.length
-      ? this.props.children
-      : [this.props.children]
+    const children = React.Children.toArray(this.props.children)
     const navCls = classnames({
       [styles.nav]: hideTab
     })

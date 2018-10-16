@@ -1,3 +1,4 @@
+@import '../../theme/index.less';
 @wrapHeight: 144px;
 .wrap {
   display: flex;
@@ -16,11 +17,11 @@
     align-content: center;
     .name {
       font-size: 28px;
-      color: #080F1E;
+      color:@bet-sp-color;
     }
     .score {
       font-size: 32px;
-      color: #E62300;
+      color: @progress-string-in-time-color;
     }
   }
   .bottom {
@@ -31,18 +32,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #FFE011;
+      background:@live-text-bg;
       border-radius: 12px;
       height: 24px;
       width: 64px;
       margin-right: 12px;
       font-size: 20px;
       font-weight: 600;
-      color: #000;
+      color: @live-text-color;
     }
     .time {
       font-size: 24px;
-      color: #214365;
+      color: @progress-text-color;
     }
   }
 }

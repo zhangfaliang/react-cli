@@ -2,15 +2,19 @@ import React, { Component } from "react"
 import LiveNum from "./LiveNum"
 import ChoosePlay from "./ChoosePlay"
 import LeftTitle from "../label/LeftTitle"
+import LabelRight from "../label/LabelRight"
 import GamePlayModule from "./GamePlayModule"
+import { offset } from "../../utils/commonFn"
 import styles from "./index.less"
 
 class MatchListTitle extends Component {
   constructor(props) {
     super(props)
+    this.listTitle = React.createRef()
     this.state = {
       isOpenFlag: false,
-      selectItem: this.props.chooseText
+      selectItem: this.props.chooseText,
+      offsetTop: 0
     }
   }
   handleChoose = isOpenFlag => {
@@ -27,9 +31,16 @@ class MatchListTitle extends Component {
     })
     handleItem && handleItem(item)
   }
+  componentDidMount() {
+    const offsetTop =
+      offset(this.listTitle.current).top + this.listTitle.current.clientHeight
+    this.setState({ offsetTop: offsetTop })
+  }
+
   render() {
     const { prefixCls, children } = this.props
-    const { isOpenFlag, selectItem } = this.state
+    const { isOpenFlag, selectItem, offsetTop } = this.state
+
     const childrens = React.Children.map(children, option => {
       const { isOpen, chooseText, ...other } = option.props
       if (option.type.COMPONENT_NAME === "LIVENUM") {
@@ -57,12 +68,19 @@ class MatchListTitle extends Component {
             {...other}
             handleItem={this.handleItem}
             handleLayer={this.handleChoose}
+            offsetTop={offsetTop}
           />
         )
+      } else if (option.type.COMPONENT_NAME === "LABELRIGHT") {
+        return <LabelRight {...other} />
       }
     })
     const clsName = `${prefixCls || "default"}-match-list-title`
-    return <div className={styles[clsName]}>{childrens}</div>
+    return (
+      <div ref={this.listTitle} className={styles[clsName]}>
+        {childrens}
+      </div>
+    )
   }
 }
 MatchListTitle.defaultProps = {
