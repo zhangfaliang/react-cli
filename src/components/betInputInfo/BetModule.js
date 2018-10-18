@@ -166,7 +166,7 @@ class BetModule extends Component {
     })
     const { isShowKeyboard, keyboardValue, possibleWin, btnActive } = this.state
     const childrens = React.Children.map(children, option => {
-      const { betAmount, value, ...other } = option
+      const { ...other } = option.props
       if (option.type.COMPONENT_NAME === "BETINPUT") {
         return (
           <BetInput
@@ -216,7 +216,7 @@ BetModule.defaultProps = {
   prefixCls: "default",
   sp: "2.7",
   allAmount: "23423423.34",
-  fillAmount: "234567567567",
+  fillAmount: "30000000000",
   isShow: false,
   maskClosable: true,
   handleCloseBetModule: () => {

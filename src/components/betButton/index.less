@@ -1,5 +1,4 @@
 @import '../../theme/index.less';
-
 @defaultWidth: 120px;
 @defaultHeight: 144px;
 @detailMediumWidth: 354px;
@@ -17,7 +16,6 @@
   right: 10px;
   opacity: 0;
   box-sizing: border-box;
-
 }
 
 @-webkit-keyframes flicker {
@@ -67,31 +65,38 @@
   position: relative;
   font-family: Akrobat-Bold;
   border-left: 1px solid @bet-border-color;
-  &:before{
+  user-select: none;
+  &:before {
     content: '';
     position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
+    top: 0;
+    bottom: 0;
+    left: 0;
     right: 0;
     z-index: 10;
   }
-  .disabled {
-    background-color: @bet-disabled-bg; 
+  
+  &.disabled {
+    background-color: @disabled-bet-bg-color;
+    .wrapOptionName{
+      span{
+        color:@disabled-bet-color;
+      }
+    }
   }
   .none {
     display: none
   }
   .up:extend(.default_chang_sp) {
     top: 25px;
-    >span:before{
+    >span:before {
       font-size: 20px;
-      color:@up-sp-color;
+      color: @up-sp-color;
     }
   }
   .down:extend(.default_chang_sp) {
     bottom: 25px;
-    >span:before{
+    >span:before {
       color: @down-sp-color;
       font-size: 20px;
     }
@@ -108,17 +113,17 @@
   .wrapSp {
     .sp {
       font-size: 32px;
-      color:@bet-sp-color;
+      color: @bet-sp-color;
     }
   }
   .lock {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     height: 44px;
     width: 44px;
-    >span:before{
-      color:@bet-lock-color;
+    >span:before {
+      color: @disabled-bet-color;
     }
   }
   .flickerSp {
@@ -165,7 +170,7 @@
   background-color: @bet-btn-active-bg-default-color;
   .wrapSp {
     .sp {
-      color:@bet-sp-active-color ;
+      color: @bet-sp-active-color ;
     }
   }
   .wrapOptionName {

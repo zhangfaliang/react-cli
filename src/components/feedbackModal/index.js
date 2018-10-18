@@ -1,7 +1,7 @@
 import React from "react"
 import Modal from "react-modal"
 import styles from "./index.less"
-import CLOSE from "../../assets/close.png"
+import CLOSE from "../../assets/close-inactive.png"
 
 const customStyles = {
   content: {

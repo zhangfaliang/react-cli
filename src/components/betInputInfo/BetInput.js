@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import classnames from "classnames"
 import Button from "../button"
 import styles from "./index.less"
-import { INSUFFICIENT_BALANCE } from "@/assets/insufficient-balance.png"
 
 class BetInput extends Component {
   static COMPONENT_NAME = "BETINPUT"
@@ -37,17 +36,22 @@ class BetInput extends Component {
       betDisabled,
       focusInput,
       allAmount,
-      fillAmount,
       allInDisabled,
       fillInDisabled,
       isAllInActive,
       isFillInActive,
-      isBetBtnActive
+      isBetBtnActive,
+      fillAmount
     } = this.props
     const clsName = styles[`${perfixCls}-input`]
     const amountCls = classnames({
       [styles.betAmount]: true,
       [styles.amountDisabled]: betAmount == 0
+    })
+
+    const fillAmountCls = classnames({
+      [styles.maxstake]: true,
+      [styles.fillAmountDisabled]: fillInDisabled
     })
 
     return (
@@ -70,8 +74,9 @@ class BetInput extends Component {
             </span>
           </div>
         </div>
-        {allAmount > fillAmount && (
+        {Number(allAmount) > Number(fillAmount) && (
           <div
+            className={styles.fillAmount}
             onClick={e => {
               e.stopPropagation()
             }}
@@ -79,14 +84,15 @@ class BetInput extends Component {
             <Button
               active={isFillInActive}
               disabled={fillInDisabled}
-              type="Fill-in"
+              type="Max Stake"
               clickCheckBtn={this.handleFillin}
-              btnText="Fill-in"
-              prefixCls="all-in"
+              btnText="Max Stake"
+              prefixCls="max-stake"
+              maxStake={fillAmount}
             />
           </div>
         )}
-        {allAmount <= fillAmount && (
+        {Number(allAmount) <= Number(fillAmount) && (
           <Button
             active={isFillInActive}
             disabled={allInDisabled}

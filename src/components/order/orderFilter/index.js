@@ -14,14 +14,16 @@ class OrderFilter extends Component {
   static defaultProps = {
     defaultActiveKey: ["0", "0"],
     defaultActiveTab: "0",
-    onChange: () => {}
+    onChange: v => {},
+    hideTab: true
   }
 
   static getDerivedStateFromProps(props, state) {
     if (state.defaultActiveTab === null) {
       return {
         defaultActiveTab: props.defaultActiveTab,
-        defaultActiveKey: props.defaultActiveKey
+        defaultActiveKey: props.defaultActiveKey,
+        hideTab: props.hideTab
       }
     }
 
@@ -68,6 +70,7 @@ class OrderFilter extends Component {
                 <div className={styles.header}>
                   <span
                     className={tabCls}
+                    id="orderFilterTap"
                     onClick={() => {
                       if (this.state.defaultActiveTab !== k && !hideTab) {
                         this.setState({ loadingTab: true })
@@ -86,7 +89,7 @@ class OrderFilter extends Component {
                       }
                     }}
                   >
-                    {v.props.body[defaultActiveKey[k]].name}
+                    <Panel>{v.props.body[defaultActiveKey[k]].name}</Panel>
                     {this.renderIcon(iconStr, iconStrCls)}
                   </span>
                 </div>
@@ -100,6 +103,7 @@ class OrderFilter extends Component {
               ? null
               : children[defaultActiveTab].props.body.map((v, k) => {
                   const keyCls = classnames({
+                    [styles.orderFilterActiveTap]: true,
                     [styles.hight]:
                       +this.state.defaultActiveKey[
                         this.state.defaultActiveTab
@@ -109,12 +113,12 @@ class OrderFilter extends Component {
                     <div
                       className={keyCls}
                       onClick={() => {
+                        onChange.call(this, v)
                         const cp = [...this.state.defaultActiveKey]
                         cp[this.state.defaultActiveTab] = k
                         this.setState({
                           defaultActiveKey: cp
                         })
-                        onChange.call(this, v)
                       }}
                       key={k}
                     >

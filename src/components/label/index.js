@@ -1,4 +1,4 @@
-export { default as LeftTitle } from "./leftTitle.js"
+export { default as LeftTitle } from "./LeftTitle.js"
 export { default as Label } from "./Label.js"
-export { default as LabelRight } from "./LabelRight"
-export { default as LabelCenter } from "./LabelCenter"
+export { default as LabelRight } from "./LabelRight.js"
+export { default as LabelCenter } from "./LabelCenter.js"

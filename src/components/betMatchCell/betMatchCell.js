@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styles from "./index.less"
 import BetMatchInfo from "../betMatchInfo"
 import BetButtonCell from "../betButtonCell"
-import ProgressText from "./progressText"
+import ProgressText from "./ProgressText"
 import { Label } from "../label"
 import { spawn } from "redux-saga/effects"
 class BetMatchCell extends Component {

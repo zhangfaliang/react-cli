@@ -56,6 +56,7 @@ class LabelRight extends Component {
         {rightText && <span className={styles.rightText}>{rightText}</span>}
         {showIcon && (
           <div onClick={this.handleClickRightIcon} className={rightIcon}>
+            {}
             <IconFont type={activerightIcon ? activeIconType : iconType} />
           </div>
         )}
@@ -76,10 +77,10 @@ LabelRight.defaultProps = {
   arrayText: [],
   showIcon: false,
   iconType: "",
-  activeIconType: "mycopy1",
+  activeIconType: "", //'mycopy1',
   rightText: "",
   activerightIcon: false,
-  defaultActiverightIcon: true,
+  defaultActiverightIcon: false,
   disabled: true,
   handleRightIcon: params => {
     console.log(params + "-----handleRightIcon")

@@ -1,8 +1,13 @@
 import React, { Component } from "react"
+import { Header } from "./Header"
 import styles from "./index.less"
 
 export class SwitchTab extends Component {
   render() {
-    return <div>TODO:</div>
+    return (
+      <div>
+        <Header />
+      </div>
+    )
   }
 }

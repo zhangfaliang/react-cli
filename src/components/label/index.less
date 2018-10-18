@@ -29,6 +29,10 @@
     resize-mode: contain;
     margin-right: 20px;
   }
+  .titleText {
+    font-size: 28px;
+    color: #FFFFFF;    
+  }
 }
 
 .live-inplay-left-title {
@@ -36,6 +40,7 @@
   .titleText {
     height: 28px;
     width: 207px;
+    font-size: 28px;
     background-image: url('../../assets/game/index/inplay-label-bg.png');
     background-size: cover;
   }
@@ -51,6 +56,8 @@
     align-items: center;
     width: 120px;
     height: 80px;
+    font-size: 28px;
+    color: #8FB8DF;
   }
   .icon {
     display: flex;
@@ -60,10 +67,10 @@
     width: 44px;
     margin-left: 20px;
     >span::before {
-      color: #FFFFFF;
+      color: @aide-color-secondary;
     }
   }
-  .activeIcon{
+  .activeIcon {
     >span::before {
       color: #FFE011;
     }
@@ -105,17 +112,18 @@
   font-size: 28px;
   color: #FFFFFF;
 }
-.match-detail-lable{
+
+.match-detail-lable {
   &:extend(.default-lable all);
   padding: 0 13px 0 17px;
   color: #FFFFFF;
 }
+
 .match-detail-left-title {
   &:extend(.default-left-title all);
-  flex:none;
+  flex: none;
 }
 
-.match-detail-right-table{
+.match-detail-right-table {
   &:extend(.default-right-table all);
- 
 }

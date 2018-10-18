@@ -40,9 +40,19 @@
     letter-spacing: 0.34px;
     .optionName {
       display: flex;
+      justify-content: flex-start;
+      align-items: center;
       font-size: 32px;
       letter-spacing: 0.38px;
       width: 100%;
+    }
+    .changeHandcap{
+      padding: 0 18px;
+      background:@live-text-bg;
+      font-size: 32px;
+      color: #080F1E;
+      letter-spacing: 0.38px;
+      border-radius: 20px;
     }
     .gamePlayName {
       display: flex;
@@ -53,6 +63,21 @@
       width: 100%;
       display: flex;
       color: @aide-color-secondary;
+    }
+    .sp{
+      margin-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 32px;
+    }
+    .changeSp {
+      padding: 0 18px;
+      background:@live-text-bg;
+      font-size: 32px;
+      color: #080F1E;
+      letter-spacing: 0.38px;
+      border-radius: 20px;
     }
   }
   .right {
@@ -106,5 +131,35 @@
     align-items: center;
     color: @remark-font-color;
     width: 100%;
+  }
+  .fillAmount {
+    position: relative;
+    width:164px;
+    height: 100px;
+    .fillinbutton{
+      width:164px;
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+
+    }
+    .maxstake {
+      position: absolute;
+      width: auto;
+      bottom: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 20px;
+      color: #333;
+      font-size: 24px;
+      text-align: center;
+    }
+    .fillAmountDisabled{
+      color: @disabled-color;
+    }
   }
 }

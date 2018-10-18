@@ -1,10 +1,12 @@
 @import '../../theme/index.less';
+@iconFontHeight:76px;
 .default-panel {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-flow: nowrap column;
   width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
   .title {
     display: flex;
@@ -12,6 +14,7 @@
     align-items: center;
     height: @tab-bar-height;
     width: 100%;
+    overflow: hidden;
     border-bottom: 1px solid @tab-bar-border-color;
     .text {
       margin-left: 20px;
@@ -19,14 +22,14 @@
       color: #FFFFFF;
     }
     .iconFont {
-      height: @iconHeight;
+      height: @iconFontHeight;
       width: @iconWidth;
       display: flex;
       justify-content: center;
       align-items: center;
       transform: rotate(90deg);
       transform-origin: center;
-      transition: .3s ease-in;
+      transition:  rotate .3s ease-in;
       >span:before {
         color: @aide-color-secondary;
       }
@@ -37,7 +40,7 @@
     opacity: 0;
     width: 100%;
     overflow: hidden;
-    transition: .5s ease-in .1s;
+    transition: overflow .5s ease-in .1s;
   }
   &.show {
     .title {
@@ -66,7 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: @tab-bar-height ;
+  height: @iconFontHeight ;
   width: @iconWidth;
   margin-right: 36px;
   >span:before {
@@ -100,7 +103,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: @iconHeight;
+        height:@iconFontHeight;
         width: @iconWidth;
         margin-right: 10px;
         >span:before {
@@ -120,7 +123,6 @@
       .foldIcon {
         &:extend(.default-right-icon all);
         transform: rotate(90deg);
-        transition: .3s ease-in;
       }
       .activeFoldIcon {
         transform: rotate(-90deg);
